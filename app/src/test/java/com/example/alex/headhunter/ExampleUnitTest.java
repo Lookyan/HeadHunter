@@ -1,4 +1,4 @@
-package com.lookyan.alex.headhunter;
+package com.example.alex.headhunter;
 
 import org.junit.Test;
 

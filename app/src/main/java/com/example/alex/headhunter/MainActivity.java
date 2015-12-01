@@ -1,4 +1,4 @@
-package com.lookyan.alex.headhunter;
+package com.example.alex.headhunter;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;

@@ -1,4 +1,4 @@
-package com.lookyan.alex.headhunter;
+package com.example.alex.headhunter;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
