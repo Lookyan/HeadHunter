@@ -1,12 +1,12 @@
 package com.example.alex.headhunter;
 
-
 import android.app.Application;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.os.ResultReceiver;
+
+import com.example.alex.headhunter.models.Employer;
 
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -33,22 +33,22 @@ public class ServiceHelper {
         currentListeners.remove(currentListener);
     }
 
-    private Intent createIntent(final Context context, String actionLogin, final int requestId) {
-        Intent i = new Intent(context, WorkerService.class);
+    private Intent createIntent(String actionLogin, final int requestId) {
+        Intent i = new Intent(context, NetService.class);
         i.setAction(actionLogin);
 
-        i.putExtra(WorkerService.EXTRA_STATUS_RECEIVER, new ResultReceiver(new Handler()) {
+        i.putExtra(NetService.EXTRA_RECEIVER, new ResultReceiver(new Handler()) {
             @Override
             protected void onReceiveResult(int resultCode, Bundle resultData) {
 //                Intent originalIntent = pendingActivities.get(requestId);
 //                if (isPending(requestId)) {
 //                    pendingActivities.remove(requestId);
 
-                    for (ServiceCallbackListener currentListener : currentListeners) {
-                        if (currentListener != null) {
-                            currentListener.onServiceCallback(requestId, originalIntent, resultCode, resultData);
-                        }
+                for (ServiceCallbackListener currentListener : currentListeners) {
+                    if (currentListener != null) {
+                        currentListener.onServiceCallback(requestId, resultCode, resultData);
                     }
+                }
 //                }
             }
         });
@@ -66,7 +66,14 @@ public class ServiceHelper {
         return requestId;
     }
 
-    public int doAwesomeAction(long personId) {
+//    public int doAwesomeAction(long personId) {
+//        final int requestId = createId();
+//        Intent i = createIntent(application, AwesomeHandler.ACTION_AWESOME_ACTION, requestId);
+//        i.putExtra(AwesomeHandler.EXTRA_PERSON_ID, personId);
+//        return runRequest(requestId, i);
+//    }
+
+    public Employer getEmployerInfo(long employerId) {
         final int requestId = createId();
         Intent i = createIntent(application, AwesomeHandler.ACTION_AWESOME_ACTION, requestId);
         i.putExtra(AwesomeHandler.EXTRA_PERSON_ID, personId);

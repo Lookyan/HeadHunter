@@ -26,6 +26,11 @@
         </activity>
         <activity android:name=".NetBaseActivity" >
         </activity>
+
+        <service
+            android:name=".NetService"
+            android:exported="false" >
+        </service>
     </application>
 
 </manifest>
