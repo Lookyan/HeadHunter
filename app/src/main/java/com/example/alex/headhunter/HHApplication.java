@@ -9,4 +9,8 @@ public class HHApplication extends Application {
     public void initServiceHelper() {
         serviceHelper = new ServiceHelper(this);
     }
+
+    public ServiceHelper getServiceHelper() {
+        return serviceHelper;
+    }
 }
