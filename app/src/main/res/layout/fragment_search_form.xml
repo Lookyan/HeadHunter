@@ -1,19 +1,87 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.alex.headhunter.SearchFormFragment">
 
+    <TextView
+        android:id="@+id/search_form_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="26sp"
+        android:text="@string/search_form_title"
+        android:layout_margin="15dp"
+        android:gravity="center"
+        android:textColor="#444"
+        />
 
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="SEARCH FORM" />
+    <EditText
+        android:id="@+id/vacancy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:textSize="24sp"
+        android:layout_margin="10dp"
+        android:hint="@string/search_form_vacancy"
+        android:layout_below="@+id/search_form_title"
+        />
+
+    <EditText
+        android:id="@+id/region"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:textSize="24sp"
+        android:layout_margin="10dp"
+        android:hint="@string/search_form_region"
+        android:layout_below="@+id/vacancy"
+        />
+
+    <EditText
+        android:id="@+id/experience"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:textSize="24sp"
+        android:layout_margin="10dp"
+        android:hint="@string/search_form_experience"
+        android:layout_below="@+id/region"
+        />
+
+    <EditText
+        android:id="@+id/busyness"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:textSize="24sp"
+        android:layout_margin="10dp"
+        android:hint="@string/search_form_busyness"
+        android:layout_below="@+id/experience"
+        />
+
+
+    <EditText
+        android:id="@+id/schedule"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:textSize="24sp"
+        android:layout_margin="10dp"
+        android:hint="@string/search_form_schedule"
+        android:layout_below="@+id/busyness"
+        />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="SEARCH"
+        android:text="@string/search_form_button"
+        android:layout_alignParentBottom="true"
         android:id="@+id/search_btn"
-        android:layout_gravity="center" />
+        android:textSize="26sp"
+        android:layout_margin="15dp"
+        android:background="#ff0000"
+        android:textColor="#ffffff"
+        />
 
-
-</FrameLayout>
+</RelativeLayout>
