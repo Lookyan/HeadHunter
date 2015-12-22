@@ -78,83 +78,83 @@
             android:text="Более 6 лет"/>
     </RadioGroup>
 
-    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/employment"
-        android:layout_width="fill_parent"
+    <TextView
+        android:id="@+id/employment_text"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:textSize="24sp"
         android:layout_margin="14dp"
-        android:layout_below="@+id/experience"
-        android:checkedButton="@+id/emp0">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:text="@string/search_form_busyness" />
-        <RadioButton android:id="@+id/emp0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:textSize="20sp"
-            android:text="Полная занятость"/>
-        <RadioButton android:id="@+id/emp1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:textSize="20sp"
-            android:text="Частичная занятость"/>
-        <RadioButton android:id="@+id/emp2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:textSize="20sp"
-            android:text="Проектная работа"/>
-        <RadioButton android:id="@+id/emp3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:textSize="20sp"
-            android:text="Стажировка"/>
-    </RadioGroup>
+        android:text="@string/search_form_busyness"
+        android:checkedButton="@+id/sch0"
+        android:layout_below="@+id/experience"/>
+    <CheckBox android:id="@+id/emp0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:textSize="20sp"
+        android:text="Полная занятость"
+        android:layout_below="@+id/employment_text"
+        android:checked="true"/>
+    <CheckBox android:id="@+id/emp1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:textSize="20sp"
+        android:text="Частичная занятость"
+        android:layout_below="@+id/emp0"/>
+    <CheckBox android:id="@+id/emp2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:textSize="20sp"
+        android:text="Проектная работа"
+        android:layout_below="@+id/emp1"/>
+    <CheckBox android:id="@+id/emp3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:textSize="20sp"
+        android:text="Стажировка"
+        android:layout_below="@+id/emp2"/>
 
-    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/schedule"
-        android:layout_width="fill_parent"
+    <TextView
+        android:id="@+id/schedule_text"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:textSize="24sp"
         android:layout_margin="14dp"
-        android:layout_below="@+id/employment"
-        android:checkedButton="@+id/sch0">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:text="@string/search_form_schedule" />
-        <RadioButton android:id="@+id/sch0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:textSize="20sp"
-            android:text="Полный день"/>
-        <RadioButton android:id="@+id/sch1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:textSize="20sp"
-            android:text="Сменный график"/>
-        <RadioButton android:id="@+id/sch2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:textSize="20sp"
-            android:text="Гибкий график"/>
-        <RadioButton android:id="@+id/sch3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:textSize="20sp"
-            android:text="Удаленная работа"/>
-    </RadioGroup>
+        android:text="@string/search_form_schedule"
+        android:checkedButton="@+id/sch0"
+        android:layout_below="@+id/emp3"/>
+    <CheckBox android:id="@+id/sch0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:textSize="20sp"
+        android:text="Полный день"
+        android:layout_below="@+id/schedule_text"
+        android:checked="true"/>
+    <CheckBox android:id="@+id/sch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:textSize="20sp"
+        android:text="Сменный график"
+        android:layout_below="@+id/sch0"/>
+    <CheckBox android:id="@+id/sch2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:textSize="20sp"
+        android:text="Гибкий график"
+        android:layout_below="@+id/sch1"/>
+    <CheckBox android:id="@+id/sch3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:textSize="20sp"
+        android:text="Удаленная работа"
+        android:layout_below="@+id/sch2"/>
 
     <Button
         android:layout_width="match_parent"
@@ -166,7 +166,7 @@
         android:layout_marginBottom="30dp"
         android:background="#ff0000"
         android:textColor="#ffffff"
-        android:layout_below="@+id/schedule"
+        android:layout_below="@+id/sch3"
         />
 
 </RelativeLayout>
