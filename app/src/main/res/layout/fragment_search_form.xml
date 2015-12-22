@@ -17,71 +17,156 @@
         />
 
     <EditText
-        android:id="@+id/vacancy"
+        android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:singleLine="true"
-        android:textSize="24sp"
+        android:textSize="26sp"
         android:layout_margin="10dp"
         android:hint="@string/search_form_vacancy"
         android:layout_below="@+id/search_form_title"
         />
 
     <EditText
-        android:id="@+id/region"
+        android:id="@+id/area"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:singleLine="true"
         android:textSize="24sp"
         android:layout_margin="10dp"
         android:hint="@string/search_form_region"
-        android:layout_below="@+id/vacancy"
+        android:layout_below="@+id/text"
+        android:text="Москва"
         />
 
-    <EditText
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/experience"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:textSize="24sp"
-        android:layout_margin="10dp"
-        android:hint="@string/search_form_experience"
-        android:layout_below="@+id/region"
-        />
+        android:orientation="vertical"
+        android:layout_margin="14dp"
+        android:layout_below="@+id/area"
+        android:checkedButton="@+id/exp1">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:text="@string/search_form_experience" />
+        <RadioButton android:id="@+id/exp0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textSize="20sp"
+            android:text="Нет опыта"/>
+        <RadioButton android:id="@+id/exp1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textSize="20sp"
+            android:text="От 1 года до 3 лет"/>
+        <RadioButton android:id="@+id/exp2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textSize="20sp"
+            android:text="От 3 до 6 лет"/>
+        <RadioButton android:id="@+id/exp3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textSize="20sp"
+            android:text="Более 6 лет"/>
+    </RadioGroup>
 
-    <EditText
-        android:id="@+id/busyness"
-        android:layout_width="match_parent"
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/employment"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:textSize="24sp"
-        android:layout_margin="10dp"
-        android:hint="@string/search_form_busyness"
+        android:orientation="vertical"
+        android:layout_margin="14dp"
         android:layout_below="@+id/experience"
-        />
+        android:checkedButton="@+id/emp0">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:text="@string/search_form_busyness" />
+        <RadioButton android:id="@+id/emp0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textSize="20sp"
+            android:text="Полная занятость"/>
+        <RadioButton android:id="@+id/emp1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textSize="20sp"
+            android:text="Частичная занятость"/>
+        <RadioButton android:id="@+id/emp2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textSize="20sp"
+            android:text="Проектная работа"/>
+        <RadioButton android:id="@+id/emp3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textSize="20sp"
+            android:text="Стажировка"/>
+    </RadioGroup>
 
-
-    <EditText
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/schedule"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:textSize="24sp"
-        android:layout_margin="10dp"
-        android:hint="@string/search_form_schedule"
-        android:layout_below="@+id/busyness"
-        />
+        android:orientation="vertical"
+        android:layout_margin="14dp"
+        android:layout_below="@+id/employment"
+        android:checkedButton="@+id/sch0">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:text="@string/search_form_schedule" />
+        <RadioButton android:id="@+id/sch0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textSize="20sp"
+            android:text="Полный день"/>
+        <RadioButton android:id="@+id/sch1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textSize="20sp"
+            android:text="Сменный график"/>
+        <RadioButton android:id="@+id/sch2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textSize="20sp"
+            android:text="Гибкий график"/>
+        <RadioButton android:id="@+id/sch3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textSize="20sp"
+            android:text="Удаленная работа"/>
+    </RadioGroup>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/search_form_button"
-        android:layout_alignParentBottom="true"
         android:id="@+id/search_btn"
         android:textSize="26sp"
         android:layout_margin="15dp"
+        android:layout_marginBottom="30dp"
         android:background="#ff0000"
         android:textColor="#ffffff"
+        android:layout_below="@+id/schedule"
         />
 
 </RelativeLayout>

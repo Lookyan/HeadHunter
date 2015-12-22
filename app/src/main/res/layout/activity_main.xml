@@ -19,10 +19,14 @@
             app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             android:background="#000000" />
 
-        <FrameLayout
-            android:id="@+id/main_content_frame"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+        <ScrollView android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#ffffff">
+            <FrameLayout
+                android:id="@+id/main_content_frame"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </ScrollView>
 
     </LinearLayout>
 
