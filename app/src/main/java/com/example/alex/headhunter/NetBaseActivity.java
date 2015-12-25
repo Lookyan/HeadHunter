@@ -12,6 +12,11 @@ public abstract class NetBaseActivity extends AppCompatActivity implements Servi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         serviceHelper = ((HHApplication) getApplication()).getServiceHelper();
+
+        if (serviceHelper == null) {
+            ((HHApplication) getApplication()).initServiceHelper();
+            serviceHelper = ((HHApplication) getApplication()).getServiceHelper();
+        }
     }
 
     @Override

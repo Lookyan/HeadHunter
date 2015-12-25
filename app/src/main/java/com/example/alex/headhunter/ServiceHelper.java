@@ -33,9 +33,9 @@ public class ServiceHelper {
         currentListeners.remove(currentListener);
     }
 
-    private Intent createIntent(String actionLogin, final int requestId) {
-        Intent i = new Intent(context, NetService.class);
-        i.setAction(actionLogin);
+    private Intent createIntent(String action, final int requestId) {
+        Intent i = new Intent(application, NetService.class);
+        i.setAction(action);
 
         i.putExtra(NetService.EXTRA_RECEIVER, new ResultReceiver(new Handler()) {
             @Override
@@ -60,23 +60,29 @@ public class ServiceHelper {
         return idCounter.getAndIncrement();
     }
 
-    private int runRequest(final int requestId, Intent i) {
-//        pendingActivities.append(requestId, i);
+//    private int runRequest(final int requestId, Intent i) {
+////        pendingActivities.append(requestId, i);
+//        application.startService(i);
+//        return requestId;
+//    }
+
+    public int doAwesomeAction(String text) {
+        final int requestId = createId();
+        Intent i = createIntent(NetService.ACTION_FOO, requestId);
+
+        i.putExtra(NetService.EXTRA_PARAM1, text);
+
         application.startService(i);
         return requestId;
     }
 
-//    public int doAwesomeAction(long personId) {
-//        final int requestId = createId();
-//        Intent i = createIntent(application, AwesomeHandler.ACTION_AWESOME_ACTION, requestId);
-//        i.putExtra(AwesomeHandler.EXTRA_PERSON_ID, personId);
-//        return runRequest(requestId, i);
-//    }
-
-    public Employer getEmployerInfo(long employerId) {
+    public int getEmployerInfo(long employerId) {
         final int requestId = createId();
-        Intent i = createIntent(application, AwesomeHandler.ACTION_AWESOME_ACTION, requestId);
-        i.putExtra(AwesomeHandler.EXTRA_PERSON_ID, personId);
-        return runRequest(requestId, i);
+        Intent i = createIntent(NetService.ACTION_GET_EMPLOYER, requestId);
+
+        i.putExtra(NetService.EXTRA_EMPLOYER_ID, employerId);
+
+        application.startService(i);
+        return requestId;
     }
 }
