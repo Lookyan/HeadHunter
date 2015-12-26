@@ -1,117 +1,21 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.alex.headhunter.SearchResultsFragment">
-
-
-    <LinearLayout
-        android:id="@+id/header"
+    android:orientation="vertical">
+    <ListView
+        android:id="@id/android:list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="#e1011c">
-
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@drawable/logo"
-            android:layout_margin="10dp"
-            android:layout_weight="1" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#FFFFFF"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:text='ООО "Глория"'
-            android:id="@+id/company"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"/>
-
-    </LinearLayout>
-
+        android:layout_height="match_parent">
+    </ListView>
     <TextView
-        android:id="@+id/salaryText"
+        android:id="@id/android:empty"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginBottom="0dp"
-        android:layout_marginTop="10dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:text="Уровень зарплаты"
-        android:layout_below="@+id/header"/>
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="Нет вакансий">
+    </TextView>
 
-    <TextView
-        android:id="@+id/salary"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_marginLeft="10dp"
-        android:textColor="#000000"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:text=" от 80 000 руб."
-        android:layout_below="@+id/salaryText"/>
-
-    <TextView
-        android:id="@+id/areaText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginBottom="0dp"
-        android:layout_marginTop="10dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:text="Город"
-        android:layout_below="@+id/salary"/>
-
-    <TextView
-        android:id="@+id/area"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_marginLeft="10dp"
-        android:textColor="#000000"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:text="Москва"
-        android:layout_below="@+id/areaText"/>
-
-    <TextView
-        android:id="@+id/experienceText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginBottom="0dp"
-        android:layout_marginTop="10dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:text="Требуемый опыт работы"
-        android:layout_below="@+id/area"/>
-
-    <TextView
-        android:id="@+id/experience"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_marginLeft="10dp"
-        android:textColor="#000000"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:text="От 1 года до 3 лет"
-        android:layout_below="@+id/experienceText"/>
-
-    <WebView
-        android:id="@+id/description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_below="@+id/experience"/>
-
-
-
-</RelativeLayout>
+</LinearLayout>

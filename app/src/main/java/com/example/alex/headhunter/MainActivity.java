@@ -3,15 +3,12 @@ package com.example.alex.headhunter;
 import android.app.Fragment;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.RadioButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
         getFragmentManager().beginTransaction()
-                .replace(R.id.main_content_frame, mSearchResultFragment)
+                .replace(R.id.main_content_frame, mSearchFormFragment)
                 .commit();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -57,6 +54,11 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.nav_results:
                             getFragmentManager().beginTransaction()
                                     .replace(R.id.main_content_frame, mSearchResultsFragment)
+                                    .commit();
+                            break;
+                        case R.id.nav_result:
+                            getFragmentManager().beginTransaction()
+                                    .replace(R.id.main_content_frame, mSearchResultFragment)
                                     .commit();
                             break;
                     }

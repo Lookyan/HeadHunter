@@ -1,40 +1,28 @@
 package com.example.alex.headhunter;
 
-import android.app.Fragment;
 import android.os.Bundle;
+import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
+import android.webkit.WebView;
 
-/**
- * Created by nano on 26.12.15.
- */
+
 public class SearchResultFragment extends Fragment {
-    private String[] data = {"1","2","3"};
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_search_results, null);
+        return inflater.inflate(R.layout.fragment_search_result, null);
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
-        ListView listResult = (ListView) view.findViewById(R.id.listResult);
+        WebView  description = (WebView) view.findViewById(R.id.description);
 
-        int[] toViews = {android.R.id.text1};
-
-        SimpleCursorAdapter adapter = new SimpleCursorAdapter(getActivity(),
-                R.layout.result_item, null,
-                data, toViews, 0);
-
-
-        listResult.setAdapter(adapter);
+        description.loadData("<p><strong>Чем нужно будет заниматься: </strong></p> <ul> <li>Разработка нового мобильного приложения под платформу Android</li> <li>Взаимодействие с аналитиками, дизайнерами и тестировщиками.</li> <li>Выявление и исправление ошибок в работе текущего приложения</li> </ul> <p> </p> <p><strong>Требования:</strong></p> <ul> <li>Опыт разработки мобильных приложений - от 1 года;</li> <li>Наличие завершенных проектов, разработанных самостоятельно или в команде разработчиков - приветствуется;</li> <li>Умение работать с Java, модель клиент-сервер;</li> <li>Технический английский язык.</li> </ul> <p> </p> <p><strong>Условия:</strong></p> <ul> <li>Зарплата по результатам собеседования</li> <li>Работа на территории работодателя в команде программистов</li> <li>Полная занятость</li> <li>Оформление по ТК РФ</li> </ul>",
+                "text/html; charset=utf-8", null);
 
     }
-
-
 
 }

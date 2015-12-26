@@ -1,172 +1,178 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffff">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.alex.headhunter.SearchFormFragment">
 
-    <TextView
-        android:id="@+id/search_form_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="26sp"
-        android:text="@string/search_form_title"
-        android:layout_margin="15dp"
-        android:gravity="center"
-        android:textColor="#444"
-        />
-
-    <EditText
-        android:id="@+id/text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:textSize="26sp"
-        android:layout_margin="10dp"
-        android:hint="@string/search_form_vacancy"
-        android:layout_below="@+id/search_form_title"
-        />
-
-    <EditText
-        android:id="@+id/area"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:textSize="24sp"
-        android:layout_margin="10dp"
-        android:hint="@string/search_form_region"
-        android:layout_below="@+id/text"
-        android:text="Москва"
-        />
-
-    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/experience"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="14dp"
-        android:layout_below="@+id/area"
-        android:checkedButton="@+id/exp1">
         <TextView
+            android:id="@+id/search_form_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="26sp"
+            android:text="@string/search_form_title"
+            android:layout_margin="15dp"
+            android:gravity="center"
+            android:textColor="#444"
+            />
+
+        <EditText
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textSize="26sp"
+            android:layout_margin="10dp"
+            android:hint="@string/search_form_vacancy"
+            android:layout_below="@+id/search_form_title"
+            />
+
+        <EditText
+            android:id="@+id/area"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textSize="24sp"
+            android:layout_margin="10dp"
+            android:hint="@string/search_form_region"
+            android:layout_below="@+id/text"
+            android:text="Москва"
+            />
+
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/experience"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="14dp"
+            android:layout_below="@+id/area"
+            android:checkedButton="@+id/exp1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:text="@string/search_form_experience" />
+            <RadioButton android:id="@+id/exp0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="20sp"
+                android:text="Нет опыта"/>
+            <RadioButton android:id="@+id/exp1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="20sp"
+                android:text="От 1 года до 3 лет"/>
+            <RadioButton android:id="@+id/exp2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="20sp"
+                android:text="От 3 до 6 лет"/>
+            <RadioButton android:id="@+id/exp3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="20sp"
+                android:text="Более 6 лет"/>
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/employment_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="24sp"
-            android:text="@string/search_form_experience" />
-        <RadioButton android:id="@+id/exp0"
+            android:layout_margin="14dp"
+            android:text="@string/search_form_busyness"
+            android:checkedButton="@+id/sch0"
+            android:layout_below="@+id/experience"/>
+        <CheckBox android:id="@+id/emp0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="20dp"
             android:textSize="20sp"
-            android:text="Нет опыта"/>
-        <RadioButton android:id="@+id/exp1"
+            android:text="Полная занятость"
+            android:layout_below="@+id/employment_text"
+            android:checked="true"/>
+        <CheckBox android:id="@+id/emp1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="20dp"
             android:textSize="20sp"
-            android:text="От 1 года до 3 лет"/>
-        <RadioButton android:id="@+id/exp2"
+            android:text="Частичная занятость"
+            android:layout_below="@+id/emp0"/>
+        <CheckBox android:id="@+id/emp2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="20dp"
             android:textSize="20sp"
-            android:text="От 3 до 6 лет"/>
-        <RadioButton android:id="@+id/exp3"
+            android:text="Проектная работа"
+            android:layout_below="@+id/emp1"/>
+        <CheckBox android:id="@+id/emp3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="20dp"
             android:textSize="20sp"
-            android:text="Более 6 лет"/>
-    </RadioGroup>
+            android:text="Стажировка"
+            android:layout_below="@+id/emp2"/>
 
-    <TextView
-        android:id="@+id/employment_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:layout_margin="14dp"
-        android:text="@string/search_form_busyness"
-        android:checkedButton="@+id/sch0"
-        android:layout_below="@+id/experience"/>
-    <CheckBox android:id="@+id/emp0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:textSize="20sp"
-        android:text="Полная занятость"
-        android:layout_below="@+id/employment_text"
-        android:checked="true"/>
-    <CheckBox android:id="@+id/emp1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:textSize="20sp"
-        android:text="Частичная занятость"
-        android:layout_below="@+id/emp0"/>
-    <CheckBox android:id="@+id/emp2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:textSize="20sp"
-        android:text="Проектная работа"
-        android:layout_below="@+id/emp1"/>
-    <CheckBox android:id="@+id/emp3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:textSize="20sp"
-        android:text="Стажировка"
-        android:layout_below="@+id/emp2"/>
+        <TextView
+            android:id="@+id/schedule_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:layout_margin="14dp"
+            android:text="@string/search_form_schedule"
+            android:checkedButton="@+id/sch0"
+            android:layout_below="@+id/emp3"/>
+        <CheckBox android:id="@+id/sch0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:textSize="20sp"
+            android:text="Полный день"
+            android:layout_below="@+id/schedule_text"
+            android:checked="true"/>
+        <CheckBox android:id="@+id/sch1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:textSize="20sp"
+            android:text="Сменный график"
+            android:layout_below="@+id/sch0"/>
+        <CheckBox android:id="@+id/sch2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:textSize="20sp"
+            android:text="Гибкий график"
+            android:layout_below="@+id/sch1"/>
+        <CheckBox android:id="@+id/sch3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:textSize="20sp"
+            android:text="Удаленная работа"
+            android:layout_below="@+id/sch2"/>
 
-    <TextView
-        android:id="@+id/schedule_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:layout_margin="14dp"
-        android:text="@string/search_form_schedule"
-        android:checkedButton="@+id/sch0"
-        android:layout_below="@+id/emp3"/>
-    <CheckBox android:id="@+id/sch0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:textSize="20sp"
-        android:text="Полный день"
-        android:layout_below="@+id/schedule_text"
-        android:checked="true"/>
-    <CheckBox android:id="@+id/sch1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:textSize="20sp"
-        android:text="Сменный график"
-        android:layout_below="@+id/sch0"/>
-    <CheckBox android:id="@+id/sch2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:textSize="20sp"
-        android:text="Гибкий график"
-        android:layout_below="@+id/sch1"/>
-    <CheckBox android:id="@+id/sch3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:textSize="20sp"
-        android:text="Удаленная работа"
-        android:layout_below="@+id/sch2"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/search_form_button"
+            android:id="@+id/search_btn"
+            android:textSize="26sp"
+            android:layout_margin="15dp"
+            android:layout_marginBottom="30dp"
+            android:background="#ff0000"
+            android:textColor="#ffffff"
+            android:layout_below="@+id/sch3"
+            />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/search_form_button"
-        android:id="@+id/search_btn"
-        android:textSize="26sp"
-        android:layout_margin="15dp"
-        android:layout_marginBottom="30dp"
-        android:background="#ff0000"
-        android:textColor="#ffffff"
-        android:layout_below="@+id/sch3"
-        />
-
-</RelativeLayout>
+    </RelativeLayout>
+</ScrollView>
