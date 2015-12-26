@@ -19,4 +19,20 @@
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="prefs_title">Настройки приложения</string>
+    <string name="prefs_history_title">Хранить историю запросов</string>
+    <string name="prefs_history_summary">последние 20 запросов</string>
+    <string name="prefs_city_title">Город</string>
+    <string name="prefs_city_summary">по умолчанию</string>
+    <string name="prefs_city_dialog">Введите название города</string>
+    <string name="prefs_theme">Выбрать тему</string>
+    <string name="prefs_theme_white_title">White Theme</string>
+    <string name="prefs_theme_white_summary">тёмные тона</string>
+    <string name="prefs_theme_black_title">Black Theme</string>
+    <string name="prefs_theme_black_summary">тёмные тона</string>
+    <string name="prefs_other">Прочее</string>
+    <string name="prefs_website_title">Официальный web-сайт HH</string>
+    <string name="prefs_website_summary">https://hh.ru/</string>
+
 </resources>

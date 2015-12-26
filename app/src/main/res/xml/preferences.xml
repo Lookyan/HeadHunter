@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/prefs_title">
+
+        <CheckBoxPreference
+            android:key="checkbox_preference"
+            android:title="@string/prefs_history_title"
+            android:summary="@string/prefs_history_summary" />
+
+
+        <EditTextPreference
+            android:key="edittext_preference"
+            android:title="@string/prefs_city_title"
+            android:summary="@string/prefs_city_summary"
+            android:dialogTitle="@string/prefs_city_dialog" />
+
+        <PreferenceScreen
+            android:key="screen_preference"
+            android:title="@string/prefs_theme">
+
+
+            <CheckBoxPreference
+                android:key="next_screen_checkbox_preference"
+                android:title="@string/prefs_theme_white_title"
+                android:summary="@string/prefs_theme_white_summary" />
+
+
+
+            <CheckBoxPreference
+                android:key="next_screen_checkbox_preference"
+                android:title="@string/prefs_theme_black_title"
+                android:summary="@string/prefs_theme_black_summary" />
+
+
+        </PreferenceScreen>
+
+    </PreferenceCategory>
+
+
+
+    <PreferenceCategory
+        android:title="@string/prefs_other">
+
+        <!-- This PreferenceScreen tag serves as a screen break (similar to page break
+             in word processing). Like for other preference types, we assign a key
+             here so it is able to save and restore its instance state. -->
+
+
+        <PreferenceScreen
+            android:title="@string/prefs_website_title"
+            android:summary="@string/prefs_website_summary">
+
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://hh.ru/" />
+
+        </PreferenceScreen>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

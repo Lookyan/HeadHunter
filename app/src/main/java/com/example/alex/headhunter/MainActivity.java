@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private final Fragment mSearchFormFragment = new SearchFormFragment();
     private final Fragment mSearchResultsFragment = new SearchResultsFragment();
     private final Fragment mSearchResultFragment = new SearchResultFragment();
+    private final Fragment mPrefFragment = new PrefsFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +60,11 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.nav_result:
                             getFragmentManager().beginTransaction()
                                     .replace(R.id.main_content_frame, mSearchResultFragment)
+                                    .commit();
+                            break;
+                        case R.id.nav_manage:
+                            getFragmentManager().beginTransaction()
+                                    .replace(R.id.main_content_frame, mPrefFragment)
                                     .commit();
                             break;
                     }
