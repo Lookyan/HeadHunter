@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private ActionBarDrawerToggle mDrawerToggle;
     private final Fragment mSearchFormFragment = new SearchFormFragment();
     private final Fragment mSearchResultsFragment = new SearchResultsFragment();
+    private final Fragment mSearchResultFragment = new SearchResultFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
         getFragmentManager().beginTransaction()
-                .replace(R.id.main_content_frame, mSearchFormFragment)
+                .replace(R.id.main_content_frame, mSearchResultFragment)
                 .commit();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
