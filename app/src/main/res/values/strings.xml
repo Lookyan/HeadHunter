@@ -2,4 +2,21 @@
     <string name="app_name">HeadHunter</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_start">HeadHunter</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="search_form_title">Параметры поиска</string>
+    <string name="search_form_vacancy">Название вакансии</string>
+    <string name="search_form_region">Регион</string>
+    <string name="search_form_experience">Опыт работы</string>
+    <string name="search_form_busyness">Тип занятости</string>
+    <string name="search_form_schedule">График работы</string>
+    <string name="search_form_button">Поиск вакансий</string>
+
+    <string name="auth_login">Войти</string>
+    <string name="auth_skip">Войти без аккаута</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

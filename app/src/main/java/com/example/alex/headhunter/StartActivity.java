@@ -1,9 +1,12 @@
 package com.example.alex.headhunter;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.alex.headhunter.models.Employer;
 
@@ -16,10 +19,14 @@ public class StartActivity extends NetBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        findViewById(R.id.test_btn).setOnClickListener(new View.OnClickListener() {
+        final ImageView splashImg = (ImageView) findViewById(R.id.imageSplash);
+
+        splashImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                StartActivity.this.getServiceHelper().getEmployerInfo(1455);
+                Intent intent = new Intent(StartActivity.this, AuthActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

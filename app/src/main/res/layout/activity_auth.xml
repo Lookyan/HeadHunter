@@ -18,12 +18,39 @@
         tools:showIn="@layout/activity_start" tools:context="com.example.alex.headhunter.StartActivity">
 
         <ImageView
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:id="@+id/imageSplash"
-            android:layout_centerVertical="true"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:id="@+id/imageView"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
             android:src="@drawable/ic_min_hh_red"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/auth_login"
+            android:id="@+id/btn_login"
+            android:textSize="26sp"
+            android:layout_marginTop="70dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="#000000"
+            android:textColor="#ffffff"
+            android:layout_below="@+id/imageView"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/auth_skip"
+            android:id="@+id/btn_skip"
+            android:textSize="26sp"
+            android:layout_margin="15dp"
+            android:layout_marginBottom="30dp"
+            android:background="#000000"
+            android:textColor="#ffffff"
+            android:layout_below="@+id/btn_login"
+            />
     </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>
