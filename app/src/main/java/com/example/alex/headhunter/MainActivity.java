@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
         getFragmentManager().beginTransaction()
-                .replace(R.id.main_content_frame, mSearchResultsFragment)
+                .replace(R.id.main_content_frame, mSearchFormFragment)
                 .commit();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
