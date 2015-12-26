@@ -1,6 +1,6 @@
 package com.example.alex.headhunter;
 
-import com.example.alex.headhunter.NetworkApi.HHApi;
+import com.example.alex.headhunter.network.HHApi;
 import com.example.alex.headhunter.models.Employer;
 
 import java.io.IOException;

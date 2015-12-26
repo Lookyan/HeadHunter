@@ -1,13 +1,13 @@
-package com.example.alex.headhunter;
+package com.example.alex.headhunter.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
-import android.widget.Button;
 import android.widget.ImageView;
 
+import com.example.alex.headhunter.NetBaseActivity;
+import com.example.alex.headhunter.R;
 import com.example.alex.headhunter.models.Employer;
 
 public class StartActivity extends NetBaseActivity {

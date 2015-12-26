@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:fitsSystemWindows="true"
-    tools:context="com.example.alex.headhunter.StartActivity">
+    tools:context="com.example.alex.headhunter.activities.StartActivity">
 
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -15,7 +15,7 @@
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:background="@color/bgColor"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:showIn="@layout/activity_start" tools:context="com.example.alex.headhunter.StartActivity">
+        tools:showIn="@layout/activity_start" tools:context="com.example.alex.headhunter.activities.StartActivity">
 
         <ImageView
             android:layout_width="300dp"

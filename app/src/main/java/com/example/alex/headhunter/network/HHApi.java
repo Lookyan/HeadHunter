@@ -1,4 +1,4 @@
-package com.example.alex.headhunter.NetworkApi;
+package com.example.alex.headhunter.network;
 
 import com.example.alex.headhunter.models.Employer;
 

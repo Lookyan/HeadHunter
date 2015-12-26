@@ -1,4 +1,4 @@
-package com.example.alex.headhunter;
+package com.example.alex.headhunter.network;
 
 import android.app.IntentService;
 import android.content.Intent;
@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.os.ResultReceiver;
 
+import com.example.alex.headhunter.Processor;
 import com.example.alex.headhunter.models.Employer;
 
 public class NetService extends IntentService {

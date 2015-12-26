@@ -1,4 +1,4 @@
-package com.example.alex.headhunter;
+package com.example.alex.headhunter.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
+
+import com.example.alex.headhunter.R;
 
 
 public class SearchFormFragment extends Fragment {

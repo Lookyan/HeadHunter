@@ -7,7 +7,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.alex.headhunter.SearchFormFragment">
+    tools:context="com.example.alex.headhunter.fragments.SearchFormFragment">
 
         <TextView
             android:id="@+id/search_form_title"

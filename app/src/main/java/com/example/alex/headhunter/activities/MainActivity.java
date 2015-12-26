@@ -1,4 +1,4 @@
-package com.example.alex.headhunter;
+package com.example.alex.headhunter.activities;
 
 import android.app.Fragment;
 import android.content.res.Configuration;
@@ -9,6 +9,11 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+
+import com.example.alex.headhunter.R;
+import com.example.alex.headhunter.fragments.SearchFormFragment;
+import com.example.alex.headhunter.fragments.SearchResultFragment;
+import com.example.alex.headhunter.fragments.SearchResultsFragment;
 
 public class MainActivity extends AppCompatActivity {
 

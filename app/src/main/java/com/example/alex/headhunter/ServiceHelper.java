@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.os.ResultReceiver;
 
-import com.example.alex.headhunter.models.Employer;
+import com.example.alex.headhunter.network.NetService;
 
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
