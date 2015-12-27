@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.alex.headhunter.R;
+import com.example.alex.headhunter.utils.ThemeUtils;
 
 /**
  * Created by nano on 26.12.15.
@@ -16,6 +17,7 @@ public class AuthActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ThemeUtils.onActivityCreateSetTheme(this);
         setContentView(R.layout.activity_auth);
 
 

@@ -11,6 +11,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 
+import com.example.alex.headhunter.NetBaseActivity;
 import com.example.alex.headhunter.utils.HHApplication;
 import com.example.alex.headhunter.R;
 
@@ -36,73 +37,71 @@ public class SearchFormFragment extends Fragment {
         fragmentView = view;
         final Button searchButton = (Button) fragmentView.findViewById(R.id.search_btn);
 
-        searchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String text;
-                int areaId;
-                String experienceApiId;
-                ArrayList<String> employmentApiIds = new ArrayList<>(4);
-                ArrayList<String> scheduleApiIds = new ArrayList<>(4);
-//                get search text
-                text = ((EditText) fragmentView.findViewById(R.id.text)).getText().toString();
-//                get area id
-//                just Moscow this time
-                areaId = 1;
-//                get experience id
-                switch (((RadioGroup) fragmentView.findViewById(R.id.experience)).getCheckedRadioButtonId()) {
-                    case R.id.exp0:
-                        experienceApiId = "noExperience";
-                        break;
+        searchButton.setOnClickListener(v -> searchButtonClick());
+    }
 
-                    case R.id.exp1:
-                        experienceApiId = "between1And3";
-                        break;
+    private void searchButtonClick() {
+        String text;
+        int areaId;
+        String experienceApiId;
+        ArrayList<String> employmentApiIds = new ArrayList<>(4);
+        ArrayList<String> scheduleApiIds = new ArrayList<>(4);
+//        get search text
+        text = ((EditText) fragmentView.findViewById(R.id.text)).getText().toString();
+//        get area id
+//        just Moscow this time
+        areaId = 1;
+//        get experience id
+        switch (((RadioGroup) fragmentView.findViewById(R.id.experience)).getCheckedRadioButtonId()) {
+            case R.id.exp0:
+                experienceApiId = "noExperience";
+                break;
 
-                    case R.id.exp2:
-                        experienceApiId = "between3And6";
-                        break;
+            case R.id.exp1:
+                experienceApiId = "between1And3";
+                break;
 
-                    case R.id.exp3:
-                        experienceApiId = "moreThan6";
-                        break;
+            case R.id.exp2:
+                experienceApiId = "between3And6";
+                break;
 
-                    default:
-                        experienceApiId = "";
-                        break;
-                }
-//                get employment ids
-                if (((CheckBox) fragmentView.findViewById(R.id.emp0)).isChecked()) {
-                    employmentApiIds.add("full");
-                }
-                if (((CheckBox) fragmentView.findViewById(R.id.emp1)).isChecked()) {
-                    employmentApiIds.add("part");
-                }
-                if (((CheckBox) fragmentView.findViewById(R.id.emp2)).isChecked()) {
-                    employmentApiIds.add("project");
-                }
-                if (((CheckBox) fragmentView.findViewById(R.id.emp3)).isChecked()) {
-                    employmentApiIds.add("volunteer");
-                }
-//                get schedule ids
-                if (((CheckBox) fragmentView.findViewById(R.id.sch0)).isChecked()) {
-                    scheduleApiIds.add("fullDay");
-                }
-                if (((CheckBox) fragmentView.findViewById(R.id.sch1)).isChecked()) {
-                    scheduleApiIds.add("shift");
-                }
-                if (((CheckBox) fragmentView.findViewById(R.id.sch2)).isChecked()) {
-                    scheduleApiIds.add("flexible");
-                }
-                if (((CheckBox) fragmentView.findViewById(R.id.sch3)).isChecked()) {
-                    scheduleApiIds.add("remote");
-                }
-                getActivity().getContentResolver().delete(CONTENT_SEARCH_RESULTS_URI, null, null);
-                ((HHApplication) getActivity().getApplicationContext()).getServiceHelper().makeSearch(text, areaId, experienceApiId, employmentApiIds, scheduleApiIds);
-                ((SearchButtonCallback) getActivity()).onSearchButtonClick();
+            case R.id.exp3:
+                experienceApiId = "moreThan6";
+                break;
 
-            }
-        });
+            default:
+                experienceApiId = "";
+                break;
+        }
+//        get employment ids
+        if (((CheckBox) fragmentView.findViewById(R.id.emp0)).isChecked()) {
+            employmentApiIds.add("full");
+        }
+        if (((CheckBox) fragmentView.findViewById(R.id.emp1)).isChecked()) {
+            employmentApiIds.add("part");
+        }
+        if (((CheckBox) fragmentView.findViewById(R.id.emp2)).isChecked()) {
+            employmentApiIds.add("project");
+        }
+        if (((CheckBox) fragmentView.findViewById(R.id.emp3)).isChecked()) {
+            employmentApiIds.add("volunteer");
+        }
+//        get schedule ids
+        if (((CheckBox) fragmentView.findViewById(R.id.sch0)).isChecked()) {
+            scheduleApiIds.add("fullDay");
+        }
+        if (((CheckBox) fragmentView.findViewById(R.id.sch1)).isChecked()) {
+            scheduleApiIds.add("shift");
+        }
+        if (((CheckBox) fragmentView.findViewById(R.id.sch2)).isChecked()) {
+            scheduleApiIds.add("flexible");
+        }
+        if (((CheckBox) fragmentView.findViewById(R.id.sch3)).isChecked()) {
+            scheduleApiIds.add("remote");
+        }
+        getActivity().getContentResolver().delete(CONTENT_SEARCH_RESULTS_URI, null, null);
+        ((NetBaseActivity) getActivity()).getServiceHelper().makeSearch(text, areaId, experienceApiId, employmentApiIds, scheduleApiIds);
+        ((SearchButtonCallback) getActivity()).onSearchButtonClick();
     }
 
 }

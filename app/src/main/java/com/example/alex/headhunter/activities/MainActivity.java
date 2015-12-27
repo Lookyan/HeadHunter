@@ -11,13 +11,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.example.alex.headhunter.NetBaseActivity;
 import com.example.alex.headhunter.R;
 import com.example.alex.headhunter.fragments.AboutFragment;
 import com.example.alex.headhunter.fragments.PrefsFragment;
 import com.example.alex.headhunter.fragments.SearchFormFragment;
 import com.example.alex.headhunter.fragments.SearchResultsFragment;
+import com.example.alex.headhunter.utils.ThemeUtils;
 
-public class MainActivity extends AppCompatActivity implements SearchFormFragment.SearchButtonCallback, SearchResultsFragment.VacancySelectCallback {
+public class MainActivity extends NetBaseActivity implements SearchFormFragment.SearchButtonCallback, SearchResultsFragment.VacancySelectCallback {
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements SearchFormFragmen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ThemeUtils.onActivityCreateSetTheme(this);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);
@@ -141,6 +144,11 @@ public class MainActivity extends AppCompatActivity implements SearchFormFragmen
 
     @Override
     public void onVacancySelect() {
+
+    }
+
+    @Override
+    public void onServiceCallback(int requestId, int resultCode, Bundle data) {
 
     }
 }
