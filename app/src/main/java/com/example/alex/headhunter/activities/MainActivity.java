@@ -12,8 +12,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.example.alex.headhunter.R;
+import com.example.alex.headhunter.fragments.AboutFragment;
+import com.example.alex.headhunter.fragments.PrefsFragment;
 import com.example.alex.headhunter.fragments.SearchFormFragment;
-import com.example.alex.headhunter.SearchResultFragment;
 import com.example.alex.headhunter.fragments.SearchResultsFragment;
 
 public class MainActivity extends AppCompatActivity implements SearchFormFragment.SearchButtonCallback, SearchResultsFragment.VacancySelectCallback {
@@ -23,7 +24,6 @@ public class MainActivity extends AppCompatActivity implements SearchFormFragmen
 //    TODO: check if savedInstanceState != null => do not recreate fragments
     private final Fragment mSearchFormFragment = new SearchFormFragment();
     private final Fragment mSearchResultsFragment = new SearchResultsFragment();
-    private final Fragment mSearchResultFragment = new SearchResultFragment();
     private final Fragment mAboutFragment = new AboutFragment();
     private final Fragment mPrefFragment = new PrefsFragment();
 
@@ -73,11 +73,6 @@ public class MainActivity extends AppCompatActivity implements SearchFormFragmen
                         case R.id.nav_results:
                             getFragmentManager().beginTransaction()
                                     .replace(R.id.main_content_frame, mSearchResultsFragment)
-                                    .commit();
-                            break;
-                        case R.id.nav_result:
-                            getFragmentManager().beginTransaction()
-                                    .replace(R.id.main_content_frame, mSearchResultFragment)
                                     .commit();
                             break;
                         case R.id.nav_manage:

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.webkit.WebView;
 import android.widget.TextView;
 
@@ -62,21 +63,34 @@ public class VacancyActivity extends NetBaseActivity {
     }
 
     private void updateVacancyInfo() {
-        companyView.setText(vacancy.getEmployer().getName());
-        areaView.setText(vacancy.getArea().getName());
-        experienceView.setText(vacancy.getExperience().getName());
-        descriptionView.loadData(vacancy.getDescription(), "text/html; charset=utf-8", null);
-        String salaryString = "";
-        if (vacancy.getSalary().getFrom() != null) {
-            salaryString += "от " + vacancy.getSalary().getFrom();
+        if (vacancy != null) {
+            if (vacancy.getEmployer() != null) {
+                companyView.setText(vacancy.getEmployer().getName());
+            }
+            if (vacancy.getArea() != null) {
+                areaView.setText(vacancy.getArea().getName());
+            }
+            if (vacancy.getExperience() != null) {
+                experienceView.setText(vacancy.getExperience().getName());
+            }
+            if (vacancy.getDescription() != null) {
+                descriptionView.loadData(vacancy.getDescription(), "text/html; charset=utf-8", null);
+            }
+            if (vacancy.getSalary() != null) {
+                String salaryString = "";
+                if (vacancy.getSalary().getFrom() != null) {
+                    salaryString += "от " + vacancy.getSalary().getFrom();
+                }
+                if (vacancy.getSalary().getTo() != null) {
+                    salaryString += " до " + vacancy.getSalary().getTo();
+                }
+                if (vacancy.getSalary().getCurrency().equals("RUR")) {
+                    salaryString += " руб.";
+                }
+                salaryView.setText(salaryString);
+            }
         }
-        if (vacancy.getSalary().getTo() != null) {
-            salaryString += " до " + vacancy.getSalary().getTo();
-        }
-        if (vacancy.getSalary().getCurrency().equals("RUR")) {
-            salaryString += " руб.";
-        }
-        salaryView.setText(salaryString);
+        findViewById(R.id.toolbar_progress).setVisibility(View.GONE);
     }
 
     @Override

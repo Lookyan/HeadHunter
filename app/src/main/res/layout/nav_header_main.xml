@@ -21,17 +21,4 @@
         android:id="@+id/imageView"
         android:layout_marginBottom="20dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Андрей Павлов"
-        android:textColor="@android:color/white"
-        android:textStyle="bold" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="android.studio@android.com"
-        android:textColor="@android:color/darker_gray" />
-
 </LinearLayout>

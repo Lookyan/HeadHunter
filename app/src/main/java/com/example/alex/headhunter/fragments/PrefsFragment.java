@@ -1,4 +1,4 @@
-package com.example.alex.headhunter;
+package com.example.alex.headhunter.fragments;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.preference.ListPreference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.util.Log;
+
+import com.example.alex.headhunter.R;
 
 import java.util.Map;
 import java.util.Objects;

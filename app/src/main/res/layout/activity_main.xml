@@ -16,13 +16,8 @@
             android:layout_height="56dp"
             android:layout_width="match_parent"
             android:elevation="4dp"
-<<<<<<< HEAD
-            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            android:background="#000000">
-=======
             android:background="@color/colorBlack"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
->>>>>>> makeup
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
             <ProgressBar
                 android:id="@+id/toolbar_progress"
