@@ -21,6 +21,7 @@ public class VacancyActivity extends NetBaseActivity {
     private int requestId;
     private Vacancy vacancy;
 
+    private TextView nameView;
     private TextView companyView;
     private TextView salaryView;
     private TextView areaView;
@@ -45,6 +46,7 @@ public class VacancyActivity extends NetBaseActivity {
             requestId = getServiceHelper().getVacancy(vacancyId);
         }
 
+        nameView = (TextView) findViewById(R.id.name);
         companyView = (TextView) findViewById(R.id.company);
         salaryView = (TextView) findViewById(R.id.salary);
         areaView = (TextView) findViewById(R.id.area);
@@ -64,6 +66,9 @@ public class VacancyActivity extends NetBaseActivity {
 
     private void updateVacancyInfo() {
         if (vacancy != null) {
+            if (vacancy.getName() != null) {
+                nameView.setText(vacancy.getName());
+            }
             if (vacancy.getEmployer() != null) {
                 companyView.setText(vacancy.getEmployer().getName());
             }

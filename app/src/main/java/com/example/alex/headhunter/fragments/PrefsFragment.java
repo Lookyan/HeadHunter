@@ -1,6 +1,7 @@
 package com.example.alex.headhunter.fragments;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.ListPreference;
@@ -8,6 +9,10 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.support.v7.internal.widget.*;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.example.alex.headhunter.R;
 import com.example.alex.headhunter.utils.ThemeUtils;
@@ -51,4 +56,5 @@ public class PrefsFragment extends PreferenceFragment{
         };
         getPreferenceManager().getSharedPreferences().registerOnSharedPreferenceChangeListener(spChanged);
     }
+
 }
