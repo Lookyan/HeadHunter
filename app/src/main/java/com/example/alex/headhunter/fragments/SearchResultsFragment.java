@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.app.ListFragment;
 import android.app.LoaderManager;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
@@ -18,6 +19,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.alex.headhunter.R;
+import com.example.alex.headhunter.activities.VacancyActivity;
 import com.example.alex.headhunter.content.HHContentProvider;
 import com.example.alex.headhunter.content.contracts.SearchResultContract;
 
@@ -25,8 +27,8 @@ import java.net.URI;
 
 public class SearchResultsFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
-    public interface SearchResultsCallbacks {
-        public void on();
+    public interface VacancySelectCallback {
+        void onVacancySelect();
     }
 
     private final int LOADER_ID = 0;
@@ -65,7 +67,12 @@ public class SearchResultsFragment extends Fragment implements LoaderManager.Loa
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Cursor cursor = (Cursor) simpleCursorAdapter.getItem(position);
+                Cursor cursor = simpleCursorAdapter.getCursor();
+                cursor.moveToPosition(position);
+                int vac_id = cursor.getInt(1);
+                Intent i = new Intent(getActivity(), VacancyActivity.class);
+                i.putExtra(VacancyActivity.EXTRA_VACANCY_ID, vac_id);
+                startActivity(i);
             }
         });
 

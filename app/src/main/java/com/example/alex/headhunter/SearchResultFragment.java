@@ -1,4 +1,4 @@
-package com.example.alex.headhunter.fragments;
+package com.example.alex.headhunter;
 
 import android.os.Bundle;
 import android.app.Fragment;

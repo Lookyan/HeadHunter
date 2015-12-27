@@ -1,10 +1,7 @@
 package com.example.alex.headhunter.activities;
 
 import android.app.Fragment;
-import android.app.LoaderManager;
-import android.content.ContentValues;
 import android.content.res.Configuration;
-import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -15,12 +12,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.example.alex.headhunter.R;
-import com.example.alex.headhunter.content.contracts.SearchResultContract;
 import com.example.alex.headhunter.fragments.SearchFormFragment;
-import com.example.alex.headhunter.fragments.SearchResultFragment;
+import com.example.alex.headhunter.SearchResultFragment;
 import com.example.alex.headhunter.fragments.SearchResultsFragment;
 
-public class MainActivity extends AppCompatActivity implements SearchFormFragment.SearchButtonCallback {
+public class MainActivity extends AppCompatActivity implements SearchFormFragment.SearchButtonCallback, SearchResultsFragment.VacancySelectCallback {
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
@@ -134,5 +130,10 @@ public class MainActivity extends AppCompatActivity implements SearchFormFragmen
                 .replace(R.id.main_content_frame, mSearchResultsFragment)
                 .commit();
 //        ((SearchResultsFragment) mSearchResultsFragment).onLoaderReset(null);
+    }
+
+    @Override
+    public void onVacancySelect() {
+
     }
 }

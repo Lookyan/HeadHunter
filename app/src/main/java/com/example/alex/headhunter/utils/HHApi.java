@@ -1,7 +1,8 @@
-package com.example.alex.headhunter.network;
+package com.example.alex.headhunter.utils;
 
 import com.example.alex.headhunter.models.Employer;
 import com.example.alex.headhunter.models.SearchResults;
+import com.example.alex.headhunter.models.Vacancy;
 
 import java.util.Map;
 
@@ -17,4 +18,7 @@ public interface HHApi {
 
     @GET("/vacancies")
     Call<SearchResults> makeSearch(@QueryMap Map<String, String> options);
+
+    @GET("/vacancies/{id}")
+    Call<Vacancy> getVacancy(@Path("id") int id);
 }

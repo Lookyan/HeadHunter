@@ -66,16 +66,6 @@ public class ServiceHelper {
 //        return requestId;
 //    }
 
-    public int doAwesomeAction(String text) {
-        final int requestId = createId();
-        Intent i = createIntent(NetService.ACTION_FOO, requestId);
-
-        i.putExtra(NetService.EXTRA_PARAM1, text);
-
-        application.startService(i);
-        return requestId;
-    }
-
     public int getEmployerInfo(long employerId) {
         final int requestId = createId();
         Intent i = createIntent(NetService.ACTION_GET_EMPLOYER, requestId);
@@ -95,6 +85,16 @@ public class ServiceHelper {
         i.putExtra(NetService.EXTRA_SEARCH_EXP, experienceApiId);
         i.putExtra(NetService.EXTRA_SEARCH_EMPL, employmentApiIds);
         i.putExtra(NetService.EXTRA_SEARCH_SCHED, scheduleApiIds);
+
+        application.startService(i);
+        return requestId;
+    }
+
+    public int getVacancy(int vacancyId) {
+        final int requestId = createId();
+        Intent i = createIntent(NetService.ACTION_GET_VACANCY, requestId);
+
+        i.putExtra(NetService.EXTRA_VACANCY_ID, vacancyId);
 
         application.startService(i);
         return requestId;

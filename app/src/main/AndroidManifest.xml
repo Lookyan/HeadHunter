@@ -40,6 +40,9 @@
             android:enabled="true"
             android:exported="false" >
         </provider>
+
+        <activity android:name=".activities.VacancyActivity" >
+        </activity>
     </application>
 
 </manifest>

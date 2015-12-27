@@ -1,13 +1,12 @@
 package com.example.alex.headhunter.utils;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.net.Uri;
 
 import com.example.alex.headhunter.content.contracts.SearchResultContract;
 import com.example.alex.headhunter.models.SearchResults;
+import com.example.alex.headhunter.models.Vacancy;
 import com.example.alex.headhunter.models.VacancyShort;
-import com.example.alex.headhunter.network.HHApi;
 import com.example.alex.headhunter.models.Employer;
 
 import java.io.IOException;
@@ -39,6 +38,19 @@ public class Processor {
         Response<Employer> response;
         try {
             response = hhApi.getEmployer(id).execute();
+        } catch (IOException e) {
+            return null;
+        }
+        if (response.isSuccess()) {
+            return response.body();
+        }
+        return null;
+    }
+
+    public Vacancy getVacancy(int id) {
+        Response<Vacancy> response;
+        try {
+            response = hhApi.getVacancy(id).execute();
         } catch (IOException e) {
             return null;
         }

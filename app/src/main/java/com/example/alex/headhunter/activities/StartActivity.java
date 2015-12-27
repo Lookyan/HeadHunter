@@ -24,7 +24,7 @@ public class StartActivity extends NetBaseActivity {
         splashImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(StartActivity.this, AuthActivity.class);
+                Intent intent = new Intent(StartActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
