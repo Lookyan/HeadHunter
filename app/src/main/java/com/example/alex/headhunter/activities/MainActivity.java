@@ -1,7 +1,9 @@
 package com.example.alex.headhunter.activities;
 
 import android.app.Fragment;
+import android.content.ContentValues;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -11,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.example.alex.headhunter.R;
+import com.example.alex.headhunter.content.contracts.SearchResultContract;
 import com.example.alex.headhunter.fragments.SearchFormFragment;
 import com.example.alex.headhunter.fragments.SearchResultFragment;
 import com.example.alex.headhunter.fragments.SearchResultsFragment;
@@ -19,9 +22,12 @@ public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
+//    TODO: check if savedInstanceState != null => do not recreate fragments
     private final Fragment mSearchFormFragment = new SearchFormFragment();
     private final Fragment mSearchResultsFragment = new SearchResultsFragment();
     private final Fragment mSearchResultFragment = new SearchResultFragment();
+
+    private final Uri CONTENT_URI = Uri.parse("content://com.example.alex.headhunter.provider/search_result");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +42,19 @@ public class MainActivity extends AppCompatActivity {
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {};
         mDrawerToggle.setDrawerIndicatorEnabled(true);
         mDrawerLayout.setDrawerListener(mDrawerToggle);
+
+        String[] proj = new String[] {
+                SearchResultContract.SearchResultEntry.COLUMN_NAME_VACANCY_ID,
+                SearchResultContract.SearchResultEntry.COLUMN_NAME_NAME,
+                SearchResultContract.SearchResultEntry.COLUMN_NAME_EMPLOYER_NAME
+        };
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(SearchResultContract.SearchResultEntry.COLUMN_NAME_VACANCY_ID, 123);
+        contentValues.put(SearchResultContract.SearchResultEntry.COLUMN_NAME_NAME, "Программист хаха");
+        contentValues.put(SearchResultContract.SearchResultEntry.COLUMN_NAME_EMPLOYER_NAME, "ООО пшд");
+
+        getContentResolver().insert(CONTENT_URI, contentValues);
+
 
         getFragmentManager().beginTransaction()
                 .replace(R.id.main_content_frame, mSearchFormFragment)

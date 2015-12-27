@@ -44,6 +44,10 @@ public class SearchResultsFragment extends Fragment implements LoaderManager.Loa
 //        setListAdapter(adapter);
 //    }
 
+    public interface SearchResultsCallbacks {
+        public void on();
+    }
+
     private final int LOADER_ID = 0;
     private final Uri CONTENT_URI = Uri.parse("content://com.example.alex.headhunter.provider/search_result");
 
@@ -52,7 +56,7 @@ public class SearchResultsFragment extends Fragment implements LoaderManager.Loa
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_search_results, container);
+        return inflater.inflate(R.layout.fragment_search_results, null);
     }
 
     @Override
@@ -90,6 +94,7 @@ public class SearchResultsFragment extends Fragment implements LoaderManager.Loa
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         return new CursorLoader(getActivity(), CONTENT_URI, new String[] {
+                "_ID",
                 SearchResultContract.SearchResultEntry.COLUMN_NAME_VACANCY_ID,
                 SearchResultContract.SearchResultEntry.COLUMN_NAME_NAME,
                 SearchResultContract.SearchResultEntry.COLUMN_NAME_EMPLOYER_NAME
@@ -109,6 +114,7 @@ public class SearchResultsFragment extends Fragment implements LoaderManager.Loa
     public void onLoaderReset(Loader<Cursor> loader) {
         simpleCursorAdapter.swapCursor(null);
     }
+
 
 //    public void onListItemClick(ListView l, View v, int position, long id) {
 //        super.onListItemClick(l, v, position, id);
