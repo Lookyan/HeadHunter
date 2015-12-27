@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/prefs_title">
+
+        <CheckBoxPreference
+            android:key="history_save"
+            android:title="@string/prefs_history_title"
+            android:summary="@string/prefs_history_summary" />
+
+
+        <EditTextPreference
+            android:key="city"
+            android:title="@string/prefs_city_title"
+            android:summary="@string/prefs_city_summary"
+            android:dialogTitle="@string/prefs_city_dialog" />
+
+        <ListPreference
+            android:title="@string/prefs_theme"
+            android:key="theme"
+            android:defaultValue="1"
+            android:entries="@array/listThemes"
+            android:entryValues="@array/listValues" />
+
+    </PreferenceCategory>
+
+
+
+    <PreferenceCategory
+        android:title="@string/prefs_other">
+
+        <!-- This PreferenceScreen tag serves as a screen break (similar to page break
+             in word processing). Like for other preference types, we assign a key
+             here so it is able to save and restore its instance state. -->
+
+
+        <PreferenceScreen
+            android:title="@string/prefs_website_title"
+            android:summary="@string/prefs_website_summary">
+
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://hh.ru/" />
+
+        </PreferenceScreen>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -17,6 +17,39 @@
     <string name="auth_login">Войти</string>
     <string name="auth_skip">Войти без аккаута</string>
 
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="prefs_title">Настройки приложения</string>
+    <string name="prefs_history_title">Хранить историю запросов</string>
+    <string name="prefs_history_summary">последние 20 запросов</string>
+    <string name="prefs_city_title">Город</string>
+    <string name="prefs_city_summary">по умолчанию</string>
+    <string name="prefs_city_dialog">Введите название города</string>
+    <string name="prefs_theme">Выбрать тему</string>
+    <string name="prefs_other">Прочее</string>
+    <string name="prefs_website_title">Официальный web-сайт HH</string>
+    <string name="prefs_website_summary">https://hh.ru/</string>
+
+    <string name="nav_search">Поиск вакансий</string>
+    <string name="nav_results">Результаты поиска</string>
+    <string name="nav_result">Вакансия</string>
+    <string name="nav_manage">Настройки</string>
+    <string name="nav_about">О приложении</string>
+
+    <string name="about_title">Приложение HeadHunter</string>
+    <string name="about_summary">HeadHunter — это самая большая и качественная база резюме и вакансий в сочетании с неизменно высоким уровнем сервиса для клиентов.</string>
+    <string name="about_dev">Разработчики</string>
+    <string name="about_dev1">Александр Лукьянченко</string>
+    <string name="about_dev2">Андрей Павлов</string>
+    <string name="about_dev3">Михаил Юлдашев</string>
+
+    <string-array name="listThemes">
+        <item>Light</item>
+        <item>Dark</item>
+    </string-array>
+
+    <string-array name="listValues">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+
 </resources>

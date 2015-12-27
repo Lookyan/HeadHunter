@@ -1,12 +1,102 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
+    <style name="AppThemeLight" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorBlack</item>
+        <item name="buttonStyle">@style/Btn.BtnLight</item>
+        <item name="editTextStyle">@style/EditLight</item>
+        <item name="radioButtonStyle">@style/RadioLight</item>
+        <item name="checkboxStyle">@style/CheckBoxLight</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:windowBackground">@color/colorWhite</item>
     </style>
+
+    <style name="AppThemeDark" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorWhite</item>
+        <item name="colorPrimaryDark">@color/colorWhite</item>
+        <item name="colorAccent">@color/colorWhite</item>
+        <item name="buttonStyle">@style/Btn.BtnDark</item>
+        <item name="editTextStyle">@style/EditDark</item>
+        <item name="radioButtonStyle">@style/RadioDark</item>
+        <item name="checkboxStyle">@style/CheckBoxDark</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:background">@color/colorBlack</item>
+    </style>
+
+    <style name="Btn.BtnDark">
+        <item name="android:background">@color/colorWhite</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
+    <style name="Btn.BtnLight">
+        <item name="android:background">@color/colorBlack</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="Btn" parent="@android:style/Widget.Button">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:layout_marginRight">15dp</item>
+    </style>
+
+    <style name="EditLight" parent="@android:style/Widget.Holo.Light.EditText">
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
+    <style name="EditDark" parent="@android:style/Widget.Holo.Light.EditText">
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="RadioLight" parent="@android:style/Widget.Holo.Light.CompoundButton.RadioButton">
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
+    <style name="RadioDark"  parent="@android:style/Widget.Holo.Light.CompoundButton.RadioButton">
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="CheckBoxLight" parent="@android:style/Widget.Holo.Light.CompoundButton.CheckBox">
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
+    <style name="CheckBoxDark"  parent="@android:style/Widget.Holo.Light.CompoundButton.CheckBox">
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="SearchElem" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:layout_marginBottom">0dp</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginRight">20dp</item>
+    </style>
+
+    <style name="ResultElem" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:layout_marginBottom">0dp</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginRight">20dp</item>
+    </style>
+
+    <style name="AboutElem" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:layout_marginBottom">0dp</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginRight">20dp</item>
+    </style>
+
     <!--<style name="AppTheme.NoActionBar">-->
         <!--<item name="windowActionBar">false</item>-->
         <!--<item name="windowNoTitle">true</item>-->
