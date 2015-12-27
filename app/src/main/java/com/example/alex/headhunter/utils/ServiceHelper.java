@@ -1,4 +1,4 @@
-package com.example.alex.headhunter;
+package com.example.alex.headhunter.utils;
 
 import android.app.Application;
 import android.content.Intent;
@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.os.ResultReceiver;
 
-import com.example.alex.headhunter.network.NetService;
+import com.example.alex.headhunter.NetService;
 
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -81,6 +81,20 @@ public class ServiceHelper {
         Intent i = createIntent(NetService.ACTION_GET_EMPLOYER, requestId);
 
         i.putExtra(NetService.EXTRA_EMPLOYER_ID, employerId);
+
+        application.startService(i);
+        return requestId;
+    }
+
+    public int makeSearch(String text, int areaId, String experienceApiId, ArrayList<String> employmentApiIds, ArrayList<String> scheduleApiIds) {
+        final int requestId = createId();
+        Intent i = createIntent(NetService.ACTION_MAKE_SEARCH, requestId);
+
+        i.putExtra(NetService.EXTRA_SEARCH_TEXT, text);
+        i.putExtra(NetService.EXTRA_SEARCH_AREA, areaId);
+        i.putExtra(NetService.EXTRA_SEARCH_EXP, experienceApiId);
+        i.putExtra(NetService.EXTRA_SEARCH_EMPL, employmentApiIds);
+        i.putExtra(NetService.EXTRA_SEARCH_SCHED, scheduleApiIds);
 
         application.startService(i);
         return requestId;

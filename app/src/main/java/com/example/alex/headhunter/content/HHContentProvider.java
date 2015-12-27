@@ -43,7 +43,7 @@ public class HHContentProvider extends ContentProvider {
 
             case SEARCH_RESULTS_CODE:
                 SQLiteDatabase db = dbHelper.getReadableDatabase();
-                return db.query(
+                Cursor cursor = db.query(
                         SEARCH_RESULTS_PATH,
                         projection,
                         selection,
@@ -52,6 +52,8 @@ public class HHContentProvider extends ContentProvider {
                         null,
                         sortOrder
                 );
+                cursor.setNotificationUri(getContext().getContentResolver(), uri);
+                return cursor;
 
         }
 
@@ -70,6 +72,7 @@ public class HHContentProvider extends ContentProvider {
                         null,
                         values
                 );
+                getContext().getContentResolver().notifyChange(uri, null);
                 break;
 
         }
@@ -78,6 +81,19 @@ public class HHContentProvider extends ContentProvider {
 
     @Override
     public int delete(@NonNull Uri uri, String selection, String[] selectionArgs) {
+        switch (uriMatcher.match(uri)) {
+
+            case SEARCH_RESULTS_CODE:
+                SQLiteDatabase db = dbHelper.getWritableDatabase();
+                int deleted = db.delete(
+                        SEARCH_RESULTS_PATH,
+                        null,
+                        null
+                );
+                getContext().getContentResolver().notifyChange(uri, null);
+                return deleted;
+
+        }
         return 0;
     }
 

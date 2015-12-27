@@ -1,8 +1,10 @@
 package com.example.alex.headhunter.activities;
 
 import android.app.Fragment;
+import android.app.LoaderManager;
 import android.content.ContentValues;
 import android.content.res.Configuration;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -18,7 +20,7 @@ import com.example.alex.headhunter.fragments.SearchFormFragment;
 import com.example.alex.headhunter.fragments.SearchResultFragment;
 import com.example.alex.headhunter.fragments.SearchResultsFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SearchFormFragment.SearchButtonCallback {
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
@@ -43,17 +45,12 @@ public class MainActivity extends AppCompatActivity {
         mDrawerToggle.setDrawerIndicatorEnabled(true);
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
-        String[] proj = new String[] {
-                SearchResultContract.SearchResultEntry.COLUMN_NAME_VACANCY_ID,
-                SearchResultContract.SearchResultEntry.COLUMN_NAME_NAME,
-                SearchResultContract.SearchResultEntry.COLUMN_NAME_EMPLOYER_NAME
-        };
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(SearchResultContract.SearchResultEntry.COLUMN_NAME_VACANCY_ID, 123);
-        contentValues.put(SearchResultContract.SearchResultEntry.COLUMN_NAME_NAME, "Программист хаха");
-        contentValues.put(SearchResultContract.SearchResultEntry.COLUMN_NAME_EMPLOYER_NAME, "ООО пшд");
-
-        getContentResolver().insert(CONTENT_URI, contentValues);
+//        ContentValues contentValues = new ContentValues();
+//        contentValues.put(SearchResultContract.SearchResultEntry.COLUMN_NAME_VACANCY_ID, 123);
+//        contentValues.put(SearchResultContract.SearchResultEntry.COLUMN_NAME_NAME, "Программист хаха");
+//        contentValues.put(SearchResultContract.SearchResultEntry.COLUMN_NAME_EMPLOYER_NAME, "ООО пшд");
+//
+//        getContentResolver().insert(CONTENT_URI, contentValues);
 
 
         getFragmentManager().beginTransaction()
@@ -129,5 +126,13 @@ public class MainActivity extends AppCompatActivity {
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         mDrawerToggle.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public void onSearchButtonClick() {
+        getFragmentManager().beginTransaction()
+                .replace(R.id.main_content_frame, mSearchResultsFragment)
+                .commit();
+//        ((SearchResultsFragment) mSearchResultsFragment).onLoaderReset(null);
     }
 }

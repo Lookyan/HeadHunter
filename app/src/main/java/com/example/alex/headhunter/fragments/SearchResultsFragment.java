@@ -25,25 +25,6 @@ import java.net.URI;
 
 public class SearchResultsFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
-//
-//    String data[] = new String[] { "Программист 1С",
-//            "Android-разработчик", "Программист С", "Java-программист",
-//            "Программист 1С",
-//            "Android-разработчик", "Программист С", "Java-программист",
-//            "Программист 1С",
-//            "Android-разработчик", "Программист С", "Java-программист",
-//            "Программист 1С",
-//            "Android-разработчик", "Программист С", "Java-программист"};
-
-//    @Override
-//    public void onActivityCreated(Bundle savedInstanceState) {
-//        super.onActivityCreated(savedInstanceState);
-//        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),
-//                R.layout.result_item, data);
-//
-//        setListAdapter(adapter);
-//    }
-
     public interface SearchResultsCallbacks {
         public void on();
     }
@@ -77,7 +58,7 @@ public class SearchResultsFragment extends Fragment implements LoaderManager.Loa
         simpleCursorAdapter = new SimpleCursorAdapter(
                 getActivity(),
                 R.layout.result_item,
-                null, from, to, LOADER_ID
+                null, from, to, 0
         );
         listView.setAdapter(simpleCursorAdapter);
 
@@ -88,31 +69,36 @@ public class SearchResultsFragment extends Fragment implements LoaderManager.Loa
             }
         });
 
-        getActivity().getLoaderManager().initLoader(0, null, this);
+        getActivity().getLoaderManager().initLoader(LOADER_ID, null, this);
     }
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        return new CursorLoader(getActivity(), CONTENT_URI, new String[] {
-                "_ID",
-                SearchResultContract.SearchResultEntry.COLUMN_NAME_VACANCY_ID,
-                SearchResultContract.SearchResultEntry.COLUMN_NAME_NAME,
-                SearchResultContract.SearchResultEntry.COLUMN_NAME_EMPLOYER_NAME
-        }, null, null, null);
+        if (id == LOADER_ID) {
+            return new CursorLoader(getActivity(), CONTENT_URI, new String[]{
+                    "_ID",
+                    SearchResultContract.SearchResultEntry.COLUMN_NAME_VACANCY_ID,
+                    SearchResultContract.SearchResultEntry.COLUMN_NAME_NAME,
+                    SearchResultContract.SearchResultEntry.COLUMN_NAME_EMPLOYER_NAME
+            }, null, null, null);
+        }
+        return null;
     }
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        switch (loader.getId()) {
-            case LOADER_ID:
-                simpleCursorAdapter.swapCursor(data);
-                break;
+        if (loader.getId() == LOADER_ID) {
+            simpleCursorAdapter.swapCursor(data);
+            simpleCursorAdapter.notifyDataSetChanged();
         }
     }
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
-        simpleCursorAdapter.swapCursor(null);
+        if (loader.getId() == LOADER_ID) {
+            simpleCursorAdapter.swapCursor(null);
+            simpleCursorAdapter.notifyDataSetChanged();
+        }
     }
 
 

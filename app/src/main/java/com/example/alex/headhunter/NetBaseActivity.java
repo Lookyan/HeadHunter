@@ -1,8 +1,11 @@
 package com.example.alex.headhunter;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.alex.headhunter.utils.HHApplication;
+import com.example.alex.headhunter.utils.ServiceCallbackListener;
+import com.example.alex.headhunter.utils.ServiceHelper;
 
 public abstract class NetBaseActivity extends AppCompatActivity implements ServiceCallbackListener {
 

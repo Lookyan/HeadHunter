@@ -1,6 +1,8 @@
-package com.example.alex.headhunter;
+package com.example.alex.headhunter.utils;
 
 import android.app.Application;
+
+import com.example.alex.headhunter.utils.ServiceHelper;
 
 public class HHApplication extends Application {
 

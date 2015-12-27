@@ -1,4 +1,4 @@
-package com.example.alex.headhunter;
+package com.example.alex.headhunter.utils;
 
 import android.content.Intent;
 import android.os.Bundle;
