@@ -16,8 +16,8 @@
             android:layout_height="56dp"
             android:layout_width="match_parent"
             android:elevation="4dp"
-            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            android:background="#000000" />
+            android:background="@color/colorBlack"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
 
             <FrameLayout
@@ -34,7 +34,10 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
+        android:background="@color/colorWhite"
+        app:itemBackground="@color/colorWhite"
         app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/activity_main_drawer" />
+        app:menu="@menu/activity_main_drawer"
+        app:theme="@style/ThemeOverlay.AppCompat.Light"/>
 
 </android.support.v4.widget.DrawerLayout>
