@@ -1,0 +1,73 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.alex.headhunter.SearchFormFragment">
+
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:id="@+id/imageView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/ic_min_hh_red_tr"/>
+
+        <TextView
+            android:id="@+id/about_title"
+            style="@style/AboutElem"
+            android:paddingTop="30dp"
+            android:textStyle="bold"
+            android:text="@string/about_title"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/imageView"
+            />
+
+        <TextView
+            android:id="@+id/about_summary"
+            style="@style/AboutElem"
+            android:text="@string/about_summary"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/about_title"
+            />
+
+        <TextView
+            android:id="@+id/about_dev"
+            style="@style/AboutElem"
+            android:textStyle="bold"
+            android:paddingTop="20dp"
+            android:text="@string/about_dev"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/about_summary"
+            />
+
+        <TextView
+            android:id="@+id/about_dev1"
+            style="@style/AboutElem"
+            android:text="@string/about_dev1"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/about_dev"
+            />
+
+        <TextView
+            android:id="@+id/about_dev2"
+            style="@style/AboutElem"
+            android:text="@string/about_dev2"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/about_dev1"
+            />
+
+        <TextView
+            android:id="@+id/about_dev3"
+            style="@style/AboutElem"
+            android:text="@string/about_dev3"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/about_dev2"
+            />
+
+
+    </RelativeLayout>
+</ScrollView>

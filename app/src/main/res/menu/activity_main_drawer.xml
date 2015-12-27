@@ -3,13 +3,18 @@
 
     <group android:checkableBehavior="single">
         <item android:id="@+id/nav_search"
-            android:title="Поиск вакансий" />
+            android:title="@string/nav_search" />
         <item android:id="@+id/nav_results"
-            android:title="Результаты поиска" />
+            android:title="@string/nav_results" />
         <item android:id="@+id/nav_result"
-            android:title="Вакансия" />
+            android:title="@string/nav_result" />
+    </group>
+
+    <group android:checkableBehavior="single">
         <item android:id="@+id/nav_manage"
-            android:title="Настройки" />
+            android:title="@string/nav_manage" />
+        <item android:id="@+id/nav_about"
+            android:title="@string/nav_about" />
     </group>
 
 </menu>
