@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:elevation="4dp"
             android:background="@color/colorBlack"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+            android:theme="@style/ToolbarTheme">
 
             <ProgressBar
                 android:id="@+id/toolbar_progress"
@@ -23,7 +23,8 @@
                 android:layout_height="50dp"
                 android:layout_marginRight="10dp"
                 android:indeterminate="true"
-                android:layout_gravity="right"/>
+                android:layout_gravity="right"
+                android:visibility="visible" />
 
         </android.support.v7.widget.Toolbar>
 

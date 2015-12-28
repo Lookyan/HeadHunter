@@ -6,8 +6,6 @@
             android:title="@string/nav_search" />
         <item android:id="@+id/nav_results"
             android:title="@string/nav_results" />
-        <item android:id="@+id/nav_result"
-            android:title="@string/nav_result" />
     </group>
 
     <group android:checkableBehavior="single">
