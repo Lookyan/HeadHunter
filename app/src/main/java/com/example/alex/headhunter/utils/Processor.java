@@ -63,25 +63,7 @@ public class Processor {
     public SearchResults makeSearch(String text, int areaId, String experienceApiId, ArrayList<String> employmentApiIds, ArrayList<String> scheduleApiIds, int page) {
         Response<SearchResults> response;
         try {
-            Map<String, String> options = new HashMap<>();
-            options.put("page", String.valueOf(page));
-            options.put("text", text);
-            options.put("area", String.valueOf(areaId));
-            options.put("experience", experienceApiId);
-            String empIds = "";
-            for (String empId : employmentApiIds) {
-                empIds += empId + "&";
-            }
-            empIds = empIds.substring(0, empIds.length()-1);
-            options.put("employment", empIds);
-            String schIds = "";
-            for (String schId : scheduleApiIds) {
-                schIds += schId + "&";
-            }
-            schIds = schIds.substring(0, schIds.length()-1);
-            options.put("schedule", schIds);
-
-            response = hhApi.makeSearch(options).execute();
+            response = hhApi.makeSearch(text, areaId, experienceApiId, employmentApiIds, scheduleApiIds, page).execute();
         } catch (IOException e) {
             return null;
         }

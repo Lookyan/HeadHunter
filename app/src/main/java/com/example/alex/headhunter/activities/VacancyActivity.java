@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.alex.headhunter.NetBaseActivity;
@@ -28,6 +29,8 @@ public class VacancyActivity extends NetBaseActivity {
     private TextView experienceView;
     private WebView descriptionView;
 
+    private ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,12 +41,17 @@ public class VacancyActivity extends NetBaseActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        progressBar = (ProgressBar) findViewById(R.id.toolbar_progress);
+        progressBar.setVisibility(View.VISIBLE);
+
         Intent incoming_intent = getIntent();
         if (incoming_intent != null) {
             vacancyId = incoming_intent.getIntExtra(EXTRA_VACANCY_ID, -1);
         }
         if (vacancyId != -1) {
             requestId = getServiceHelper().getVacancy(vacancyId);
+        } else {
+            progressBar.setVisibility(View.INVISIBLE);
         }
 
         nameView = (TextView) findViewById(R.id.name);
@@ -95,7 +103,7 @@ public class VacancyActivity extends NetBaseActivity {
                 salaryView.setText(salaryString);
             }
         }
-        findViewById(R.id.toolbar_progress).setVisibility(View.GONE);
+        progressBar.setVisibility(View.INVISIBLE);
     }
 
     @Override

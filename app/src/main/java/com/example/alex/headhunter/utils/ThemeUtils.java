@@ -24,14 +24,15 @@ public class ThemeUtils {
     public static void changeToTheme(Activity activity)
 
     {
+        Intent i = activity.getIntent();
         activity.finish();
-        activity.startActivity(new Intent(activity, activity.getClass()));
+        activity.startActivity(i);
     }
 
     public static void onActivityCreateSetTheme(Activity activity)
     {
 
-        SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(activity);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
         int index = Integer.valueOf(prefs.getString(PrefsFragment.PREF_THEME, "-1"));
         switch (index) {
             default:

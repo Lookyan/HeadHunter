@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.ListPreference;
+import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.support.v7.internal.widget.*;
@@ -29,32 +30,40 @@ public class PrefsFragment extends PreferenceFragment{
     static final String PREF_HISTORY_SAVE = "history_save";
     static final String PREF_CITY= "city";
     public static final String PREF_THEME = "theme";
-    private Activity activity = null;
+    private Activity activity;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        activity = super.getActivity();
+        activity = getActivity();
 
         addPreferencesFromResource(R.xml.preferences);
-        SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(super.getActivity());
+//        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
         ListPreference listThemes = (ListPreference) findPreference(PREF_THEME);
-        CharSequence[] themes = listThemes.getEntries();
+//        CharSequence[] themes = listThemes.getEntries();
 
-        Log.i("history_save:", ((Boolean)prefs.getBoolean(PREF_HISTORY_SAVE, true)).toString());
-        Log.i("city:",  prefs.getString(PREF_CITY, ""));
+//        Log.i("history_save:", ((Boolean)prefs.getBoolean(PREF_HISTORY_SAVE, true)).toString());
+//        Log.i("city:",  prefs.getString(PREF_CITY, ""));
 
-        int index = Integer.valueOf(prefs.getString(PREF_THEME, "-1"));
-        if ( index >= 0 && index < themes.length)
-            Log.i("theme:", themes[index].toString());
+//        int index = Integer.valueOf(prefs.getString(PREF_THEME, "-1"));
+//        if ( index >= 0 && index < themes.length) {
+//            Log.i("theme:", themes[index].toString());
+//        }
 
-        SharedPreferences.OnSharedPreferenceChangeListener spChanged = (sharedPreferences, key) -> {
-            Log.i("theme:", "change");
-            ThemeUtils.changeToTheme(activity);
-        };
-        getPreferenceManager().getSharedPreferences().registerOnSharedPreferenceChangeListener(spChanged);
+        listThemes.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                ThemeUtils.changeToTheme(activity);
+                return true;
+            }
+        });
+//        SharedPreferences.OnSharedPreferenceChangeListener spChanged = (sharedPreferences, key) -> {
+//            Log.i("theme:", "change");
+//            ThemeUtils.changeToTheme(activity);
+//        };
+//        getPreferenceManager().getSharedPreferences().registerOnSharedPreferenceChangeListener(spChanged);
     }
 
 }

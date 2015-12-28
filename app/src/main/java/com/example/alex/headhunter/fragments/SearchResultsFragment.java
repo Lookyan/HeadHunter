@@ -18,6 +18,7 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.alex.headhunter.NetBaseActivity;
@@ -30,8 +31,8 @@ import java.net.URI;
 
 public class SearchResultsFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
-    public interface VacancySelectCallback {
-        void onVacancySelect();
+    public interface UpdateListCallback {
+        void onListUpdateStarted(int id);
     }
 
     private final int LOADER_ID = 0;
@@ -84,7 +85,10 @@ public class SearchResultsFragment extends Fragment implements LoaderManager.Loa
 
                 if (scrollState == SCROLL_STATE_IDLE) {
                     if (listView.getLastVisiblePosition() >= count - threshold) {
-                        ((NetBaseActivity) getActivity()).getServiceHelper().addPageToResults();
+                        int id = ((NetBaseActivity) getActivity()).getServiceHelper().addPageToResults();
+                        if (id != -1) {
+                            ((UpdateListCallback) getActivity()).onListUpdateStarted(id);
+                        }
                     }
                 }
             }
@@ -126,6 +130,7 @@ public class SearchResultsFragment extends Fragment implements LoaderManager.Loa
             simpleCursorAdapter.notifyDataSetChanged();
         }
     }
+
 
 //    public void onListItemClick(ListView l, View v, int position, long id) {
 //        super.onListItemClick(l, v, position, id);

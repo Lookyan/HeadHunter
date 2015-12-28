@@ -17,13 +17,15 @@ public class StartActivity extends AppCompatActivity {
         ThemeUtils.onActivityCreateSetTheme(this);
         setContentView(R.layout.activity_start);
 
-        final ImageView splashImg = (ImageView) findViewById(R.id.imageSplash);
+        Intent intent = new Intent(StartActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
 
-        splashImg.setOnClickListener(v -> {
-            Intent intent = new Intent(StartActivity.this, AuthActivity.class);
-            startActivity(intent);
-            finish();
-        });
+//        final ImageView splashImg = (ImageView) findViewById(R.id.imageSplash);
+//
+//        splashImg.setOnClickListener(v -> {
+//
+//        });
     }
 
 }

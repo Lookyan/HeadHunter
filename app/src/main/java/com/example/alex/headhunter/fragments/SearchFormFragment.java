@@ -22,6 +22,7 @@ public class SearchFormFragment extends Fragment {
 
     public interface SearchButtonCallback {
         void onSearchButtonClick();
+        void saveRequestId(int id);
     }
 
     private View fragmentView;
@@ -100,7 +101,8 @@ public class SearchFormFragment extends Fragment {
             scheduleApiIds.add("remote");
         }
         getActivity().getContentResolver().delete(CONTENT_SEARCH_RESULTS_URI, null, null);
-        ((NetBaseActivity) getActivity()).getServiceHelper().makeSearch(text, areaId, experienceApiId, employmentApiIds, scheduleApiIds);
+        int id = ((NetBaseActivity) getActivity()).getServiceHelper().makeSearch(text, areaId, experienceApiId, employmentApiIds, scheduleApiIds);
+        ((SearchButtonCallback) getActivity()).saveRequestId(id);
         ((SearchButtonCallback) getActivity()).onSearchButtonClick();
     }
 
