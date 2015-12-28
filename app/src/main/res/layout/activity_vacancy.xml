@@ -58,6 +58,7 @@
             android:id="@+id/salaryText"
             style="@style/ResultElem"
             android:layout_marginTop="10dp"
+            android:visibility="invisible"
             android:text="Уровень зарплаты"
             android:layout_below="@+id/company"
             />
@@ -72,6 +73,7 @@
             android:id="@+id/areaText"
             style="@style/ResultElem"
             android:layout_marginTop="10dp"
+            android:visibility="invisible"
             android:text="Город"
             android:layout_below="@+id/salary"/>
 
@@ -85,6 +87,7 @@
             android:id="@+id/experienceText"
             style="@style/ResultElem"
             android:layout_marginTop="10dp"
+            android:visibility="invisible"
             android:text="Требуемый опыт работы"
             android:layout_below="@+id/area"/>
 

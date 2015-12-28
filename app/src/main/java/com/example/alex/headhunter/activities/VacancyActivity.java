@@ -27,6 +27,9 @@ public class VacancyActivity extends NetBaseActivity {
     private TextView salaryView;
     private TextView areaView;
     private TextView experienceView;
+    private TextView salaryText;
+    private TextView areaText;
+    private TextView experienceText;
     private WebView descriptionView;
 
     private ProgressBar progressBar;
@@ -60,6 +63,10 @@ public class VacancyActivity extends NetBaseActivity {
         areaView = (TextView) findViewById(R.id.area);
         experienceView = (TextView) findViewById(R.id.experience);
         descriptionView = (WebView) findViewById(R.id.description);
+        salaryText = (TextView) findViewById(R.id.salaryText);
+        areaText = (TextView) findViewById(R.id.areaText);
+        experienceText = (TextView) findViewById(R.id.experienceText);
+
     }
 
     @Override
@@ -101,7 +108,13 @@ public class VacancyActivity extends NetBaseActivity {
                     salaryString += " руб.";
                 }
                 salaryView.setText(salaryString);
+                salaryText.setVisibility(View.VISIBLE);
+            } else {
+                salaryText.setVisibility(View.GONE);
+                salaryView.setVisibility(View.GONE);
             }
+            areaText.setVisibility(View.VISIBLE);
+            experienceText.setVisibility(View.VISIBLE);
         }
         progressBar.setVisibility(View.INVISIBLE);
     }
