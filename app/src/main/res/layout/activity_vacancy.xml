@@ -27,52 +27,44 @@
 
         </android.support.v7.widget.Toolbar>
 
-
-        <LinearLayout
-            android:id="@+id/header"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/main_toolbar"
-            android:orientation="horizontal"
-            android:background="#e1011c">
+            android:background="#e1011c"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textStyle="bold"
 
-            <ImageView
-                android:id="@+id/logo"
-                android:background="#00000000"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:src="@drawable/logo"
-                android:layout_margin="10dp"
-                android:layout_weight="1" />
+            android:id="@+id/name"
+            android:layout_gravity="center_vertical"
+            android:layout_below="@+id/main_toolbar"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:background="#00000000"
-                android:text='ООО "Глория"'
-                android:id="@+id/company"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1"/>
 
-        </LinearLayout>
+
+        <TextView
+            android:id="@+id/company"
+            style="@style/ResultElem"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:layout_below="@+id/name"
+            />
 
         <TextView
             android:id="@+id/salaryText"
             style="@style/ResultElem"
             android:layout_marginTop="10dp"
             android:text="Уровень зарплаты"
-            android:layout_below="@+id/header"
+            android:layout_below="@+id/company"
             />
 
         <TextView
             android:id="@+id/salary"
             style="@style/ResultElem"
             android:textStyle="bold"
-            android:text="от 80 000 руб."
             android:layout_below="@+id/salaryText"/>
 
         <TextView
@@ -86,7 +78,6 @@
             android:id="@+id/area"
             style="@style/ResultElem"
             android:textStyle="bold"
-            android:text="Москва"
             android:layout_below="@+id/areaText"/>
 
         <TextView
@@ -100,7 +91,6 @@
             android:id="@+id/experience"
             style="@style/ResultElem"
             android:textStyle="bold"
-            android:text="от 1 года до 3 лет"
             android:layout_below="@+id/experienceText"/>
 
         <WebView

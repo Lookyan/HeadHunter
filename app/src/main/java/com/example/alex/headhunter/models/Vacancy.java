@@ -7,6 +7,7 @@ import java.io.Serializable;
 public class Vacancy implements Serializable {
 
     private int id;
+    private String name;
     private String description;
     private Schedule schedule;
     private Experience experience;
@@ -17,6 +18,10 @@ public class Vacancy implements Serializable {
 
     public EmployerShort getEmployer() {
         return employer;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getId() {
