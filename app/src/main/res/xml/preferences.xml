@@ -8,13 +8,6 @@
             android:title="@string/prefs_history_title"
             android:summary="@string/prefs_history_summary" />
 
-
-        <EditTextPreference
-            android:key="city"
-            android:title="@string/prefs_city_title"
-            android:summary="@string/prefs_city_summary"
-            android:dialogTitle="@string/prefs_city_dialog" />
-
         <ListPreference
             android:title="@string/prefs_theme"
             android:key="theme"
