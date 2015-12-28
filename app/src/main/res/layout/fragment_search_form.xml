@@ -25,14 +25,6 @@
             android:layout_below="@+id/search_form_title"
             />
 
-        <EditText
-            android:id="@+id/area"
-            style="@style/SearchElem"
-            android:hint="@string/search_form_region"
-            android:textColorHint="#888888"
-            android:layout_below="@+id/text"
-            android:text="Москва"
-            />
 
         <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/experience"
@@ -40,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="3dp"
-            android:layout_below="@+id/area"
+            android:layout_below="@+id/text"
             android:checkedButton="@+id/exp1">
             <TextView
                 style="@style/SearchElem"
