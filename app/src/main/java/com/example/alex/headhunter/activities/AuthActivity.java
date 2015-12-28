@@ -23,13 +23,10 @@ public class AuthActivity extends AppCompatActivity {
 
         final Button btn_skip = (Button) findViewById(R.id.btn_skip);
 
-        btn_skip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(AuthActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
+        btn_skip.setOnClickListener(v -> {
+            Intent intent = new Intent(AuthActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
         });
     }
 }

@@ -2,12 +2,11 @@ package com.example.alex.headhunter.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.ImageView;
-
 import com.example.alex.headhunter.R;
-import com.example.alex.headhunter.activities.AuthActivity;
 import com.example.alex.headhunter.utils.ThemeUtils;
+
 
 public class StartActivity extends AppCompatActivity {
 
@@ -17,15 +16,12 @@ public class StartActivity extends AppCompatActivity {
         ThemeUtils.onActivityCreateSetTheme(this);
         setContentView(R.layout.activity_start);
 
-        Intent intent = new Intent(StartActivity.this, MainActivity.class);
-        startActivity(intent);
-        finish();
+        new Handler().postDelayed(() -> {
+            Intent intent = new Intent(StartActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }, 1500);
 
-//        final ImageView splashImg = (ImageView) findViewById(R.id.imageSplash);
-//
-//        splashImg.setOnClickListener(v -> {
-//
-//        });
     }
 
 }

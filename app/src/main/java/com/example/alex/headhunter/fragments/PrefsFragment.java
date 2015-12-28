@@ -37,33 +37,15 @@ public class PrefsFragment extends PreferenceFragment{
         super.onCreate(savedInstanceState);
 
         activity = getActivity();
-
         addPreferencesFromResource(R.xml.preferences);
-//        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
         ListPreference listThemes = (ListPreference) findPreference(PREF_THEME);
-//        CharSequence[] themes = listThemes.getEntries();
 
-//        Log.i("history_save:", ((Boolean)prefs.getBoolean(PREF_HISTORY_SAVE, true)).toString());
-//        Log.i("city:",  prefs.getString(PREF_CITY, ""));
-
-//        int index = Integer.valueOf(prefs.getString(PREF_THEME, "-1"));
-//        if ( index >= 0 && index < themes.length) {
-//            Log.i("theme:", themes[index].toString());
-//        }
-
-        listThemes.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-                ThemeUtils.changeToTheme(activity);
-                return true;
-            }
+        listThemes.setOnPreferenceChangeListener((preference, newValue) -> {
+            ThemeUtils.changeToTheme(activity);
+            return true;
         });
-//        SharedPreferences.OnSharedPreferenceChangeListener spChanged = (sharedPreferences, key) -> {
-//            Log.i("theme:", "change");
-//            ThemeUtils.changeToTheme(activity);
-//        };
-//        getPreferenceManager().getSharedPreferences().registerOnSharedPreferenceChangeListener(spChanged);
+
     }
 
 }
