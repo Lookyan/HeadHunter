@@ -3,8 +3,12 @@
     <PreferenceCategory
         android:title="@string/prefs_title">
 
-        <CheckBoxPreference
-            android:key="history_save"
+        <!--<CheckBoxPreference-->
+            <!--android:key="history_save"-->
+            <!--android:title=""-->
+            <!--android:summary="@string/prefs_history_summary" />-->
+        <Preference
+            android:key="history_clear"
             android:title="@string/prefs_history_title"
             android:summary="@string/prefs_history_summary" />
 

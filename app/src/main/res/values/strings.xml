@@ -18,8 +18,8 @@
     <string name="auth_skip">Войти без аккаута</string>
 
     <string name="prefs_title">Настройки приложения</string>
-    <string name="prefs_history_title">Хранить историю запросов</string>
-    <string name="prefs_history_summary">последние 20 запросов</string>
+    <string name="prefs_history_title">Удалить результаты поиска</string>
+    <string name="prefs_history_summary">Очистить список ранее найденных вакансий</string>
     <string name="prefs_city_title">Город</string>
     <string name="prefs_city_summary">по умолчанию</string>
     <string name="prefs_city_dialog">Введите название города</string>

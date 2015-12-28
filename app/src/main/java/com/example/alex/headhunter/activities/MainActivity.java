@@ -38,8 +38,6 @@ public class MainActivity extends NetBaseActivity implements SearchFormFragment.
     private final Fragment mPrefFragment = new PrefsFragment();
 
     private ProgressBar progressBar;
-
-    private final Uri CONTENT_URI = Uri.parse("content://com.example.alex.headhunter.provider/search_result");
     private List<Integer> searchRequestIds;
 
     private final String searchFormFragmentKey = "search_form_fragment_key";
