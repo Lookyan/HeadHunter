@@ -10,14 +10,17 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.widget.SimpleCursorAdapter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.alex.headhunter.NetBaseActivity;
 import com.example.alex.headhunter.R;
 import com.example.alex.headhunter.activities.VacancyActivity;
 import com.example.alex.headhunter.content.HHContentProvider;
@@ -64,15 +67,31 @@ public class SearchResultsFragment extends Fragment implements LoaderManager.Loa
         );
         listView.setAdapter(simpleCursorAdapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listView.setOnItemClickListener((parent, view1, position, id) -> {
+            Cursor cursor = simpleCursorAdapter.getCursor();
+            cursor.moveToPosition(position);
+            int vac_id = cursor.getInt(1);
+            Intent i = new Intent(getActivity(), VacancyActivity.class);
+            i.putExtra(VacancyActivity.EXTRA_VACANCY_ID, vac_id);
+            startActivity(i);
+        });
+
+        listView.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Cursor cursor = simpleCursorAdapter.getCursor();
-                cursor.moveToPosition(position);
-                int vac_id = cursor.getInt(1);
-                Intent i = new Intent(getActivity(), VacancyActivity.class);
-                i.putExtra(VacancyActivity.EXTRA_VACANCY_ID, vac_id);
-                startActivity(i);
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+                int threshold = 1;
+                int count = listView.getCount();
+
+                if (scrollState == SCROLL_STATE_IDLE) {
+                    if (listView.getLastVisiblePosition() >= count - threshold) {
+                        ((NetBaseActivity) getActivity()).getServiceHelper().addPageToResults();
+                    }
+                }
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+
             }
         });
 
@@ -107,7 +126,6 @@ public class SearchResultsFragment extends Fragment implements LoaderManager.Loa
             simpleCursorAdapter.notifyDataSetChanged();
         }
     }
-
 
 //    public void onListItemClick(ListView l, View v, int position, long id) {
 //        super.onListItemClick(l, v, position, id);

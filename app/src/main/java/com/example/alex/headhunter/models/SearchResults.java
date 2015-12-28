@@ -1,14 +1,15 @@
 package com.example.alex.headhunter.models;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class SearchResults {
+public class SearchResults implements Serializable {
     private int per_page;
     private int page;
     private int pages;
     private List<VacancyShort> items;
 
-    public int getPer_page() {
+    public int getPerPage() {
         return per_page;
     }
 

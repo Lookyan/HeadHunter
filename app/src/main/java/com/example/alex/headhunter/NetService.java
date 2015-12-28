@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.os.ResultReceiver;
 
+import com.example.alex.headhunter.models.SearchResults;
 import com.example.alex.headhunter.models.Vacancy;
 import com.example.alex.headhunter.utils.HHApplication;
 import com.example.alex.headhunter.utils.Processor;
@@ -19,6 +20,8 @@ public class NetService extends IntentService {
     public static final int CODE_OK = 200;
     public static final int CODE_FAILED = 500;
 
+    public static final String RETURN_DATA_SEARCH_RESULTS = "com.example.alex.headhunter.return.SEARCH_RESULTS";
+
     public static final String ACTION_GET_EMPLOYER = "com.example.alex.headhunter.action.GET_EMPLOYER";
     public static final String EXTRA_EMPLOYER_ID = "com.example.alex.headhunter.extra.EMPLOYER_ID";
 
@@ -28,6 +31,7 @@ public class NetService extends IntentService {
     public static final String EXTRA_SEARCH_EXP = "com.example.alex.headhunter.extra.SEARCH_EXP";
     public static final String EXTRA_SEARCH_EMPL = "com.example.alex.headhunter.extra.SEARCH_EMPL";
     public static final String EXTRA_SEARCH_SCHED = "com.example.alex.headhunter.extra.SEARCH_SCHED";
+    public static final String EXTRA_SEARCH_PAGE = "com.example.alex.headhunter.extra.SEARCH_PAGE";
 
     public static final String ACTION_GET_VACANCY = "com.example.alex.headhunter.action.ACTION_GET_VACANCY";
     public static final String EXTRA_VACANCY_ID = "com.example.alex.headhunter.extra.VACANCY_ID";
@@ -63,8 +67,10 @@ public class NetService extends IntentService {
                 String experienceApiId = intent.getStringExtra(NetService.EXTRA_SEARCH_EXP);
                 ArrayList<String> employmentApiIds = (ArrayList<String>) intent.getSerializableExtra(NetService.EXTRA_SEARCH_EMPL);
                 ArrayList<String> scheduleApiIds = (ArrayList<String>) intent.getSerializableExtra(NetService.EXTRA_SEARCH_SCHED);
+                int page = intent.getIntExtra(EXTRA_SEARCH_PAGE, 0);
 
-                processor.makeSearch(text, areaId, experienceApiId, employmentApiIds, scheduleApiIds);
+                SearchResults results = processor.makeSearch(text, areaId, experienceApiId, employmentApiIds, scheduleApiIds, page);
+                handleSearch(receiver, results);
 
             } else if (ACTION_GET_VACANCY.equals(action)) {
 
@@ -93,6 +99,16 @@ public class NetService extends IntentService {
         if (vacancy != null) {
             Bundle bundle = new Bundle();
             bundle.putSerializable("vacancy", vacancy);
+            receiver.send(CODE_OK, bundle);
+        } else {
+            receiver.send(CODE_FAILED, null);
+        }
+    }
+
+    private void handleSearch(ResultReceiver receiver, SearchResults results) {
+        if (results != null) {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(RETURN_DATA_SEARCH_RESULTS, results);
             receiver.send(CODE_OK, bundle);
         } else {
             receiver.send(CODE_FAILED, null);

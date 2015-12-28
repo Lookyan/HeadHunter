@@ -60,10 +60,11 @@ public class Processor {
         return null;
     }
 
-    public void makeSearch(String text, int areaId, String experienceApiId, ArrayList<String> employmentApiIds, ArrayList<String> scheduleApiIds) {
+    public SearchResults makeSearch(String text, int areaId, String experienceApiId, ArrayList<String> employmentApiIds, ArrayList<String> scheduleApiIds, int page) {
         Response<SearchResults> response;
         try {
             Map<String, String> options = new HashMap<>();
+            options.put("page", String.valueOf(page));
             options.put("text", text);
             options.put("area", String.valueOf(areaId));
             options.put("experience", experienceApiId);
@@ -82,7 +83,7 @@ public class Processor {
 
             response = hhApi.makeSearch(options).execute();
         } catch (IOException e) {
-            return;
+            return null;
         }
         if (response.isSuccess()) {
             SearchResults results = response.body();
@@ -97,6 +98,8 @@ public class Processor {
 
                 context.getContentResolver().insert(CONTENT_SEARCH_RESULTS_URI, contentValues);
             }
+            return results;
         }
+        return null;
     }
 }
